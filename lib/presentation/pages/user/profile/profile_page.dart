@@ -3,14 +3,12 @@ import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:disco_app/app/app_router.gr.dart';
 import 'package:disco_app/data/local/local_storage.dart';
-import 'package:disco_app/data/network/request_models/google_login_request_model.dart';
 import 'package:disco_app/domain/stored_user_model.dart';
 import 'package:disco_app/presentation/common_widgets/post/post.dart';
 import 'package:disco_app/presentation/pages/user/profile/bloc/profile_cubit.dart';
 import 'package:disco_app/presentation/pages/user/profile/bloc/profile_state.dart';
 import 'package:disco_app/res/colors.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,6 +37,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   String _lastStatus = '';
   String _creed = '';
+  String _photo = '';
   int _userTarget = 50;
   int _currentFollowers = 0;
 
@@ -159,6 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       setState(() {
                                         _lastStatus = state.user.account?.status?.lastStatus ?? '';
                                         _creed = state.user.account?.creed ?? '';
+                                        _photo = state.user.account?.photo ?? '';
                                         _userTarget = state.user.account?.status?.userTarget ?? 0;
                                         _currentFollowers =
                                             state.user.account?.status?.followersCount ?? 0;
@@ -272,8 +272,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   )),
                   BlocBuilder<ProfileCubit, ProfileState>(
                     builder: (context, state) {
-                      if(state is ProfileStateLoading){
-                        return const CircularProgressIndicator.adaptive();
+                      print('lol333 ${state.runtimeType}');
+                      if (state is ProfileStateLoading) {
+                        return const SliverToBoxAdapter(
+                            child: CircularProgressIndicator.adaptive());
                       }
                       if (state is ProfileStateLoaded &&
                           state.user.account != null &&

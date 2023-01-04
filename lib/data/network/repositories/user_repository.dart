@@ -22,13 +22,13 @@ class UserRepository {
       });
 
   Future<User?> getUserDetails() async => await authApi.getUserDetails().then((response) {
-        return User.fromJson(response);
+    return User.fromJson(response);
       });
 
   Future<User?> getUserById(int id) async {
     try {
       final user = await authApi.getUserById(id).then((response) {
-        return User.fromJson(response['user']);
+        return User.fromJson(response);
       });
       return user;
     } catch (err) {

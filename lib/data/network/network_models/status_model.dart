@@ -10,14 +10,14 @@ class StatusModel {
   StatusModel({this.lastStatus, this.followersCount, this.nextStatusId, this.userTarget, this.id});
 
   StatusModel.fromJson(Map<String, dynamic> json) {
-    try{
+    try {
       lastStatus = json['lastStatus'];
       followersCount = json['followersCount'];
       nextStatusId = json['nextStatusId'];
       userTarget = json['userTarget'];
       id = json['id'];
-    }catch(err){
-      log('$err',name: 'Status model error');
+    } catch (err) {
+      log('$err', name: 'Status model error');
     }
   }
 

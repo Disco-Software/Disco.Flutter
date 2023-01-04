@@ -29,7 +29,7 @@ class Account {
 
   Account.fromJson(Map<String, dynamic> json) {
     try {
-      status = json['status'] != null ? StatusModel.fromJson(json['status']) : null;
+      status = json['accountStatus'] != null ? StatusModel.fromJson(json['accountStatus']) : null;
       creed = json['cread'];
       photo = json['photo'];
       if (json['posts'] != null) {
@@ -60,7 +60,7 @@ class Account {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['status'] = status;
+    data['accountStatus'] = status;
     data['photo'] = photo;
     data['creed'] = creed;
     if (posts != null) {

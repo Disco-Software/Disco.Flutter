@@ -18,8 +18,7 @@ extension Secure on SecureStorageRepository {
           key: Strings.currentFollowers, value: storedUserModel?.currentFollowers.toString() ?? '');
     }
     if (storedUserModel?.userTarget != null) {
-      await write(
-          key: Strings.goalFollowers, value: storedUserModel?.userTarget.toString() ?? '');
+      await write(key: Strings.goalFollowers, value: storedUserModel?.userTarget.toString() ?? '');
     }
     if (storedUserModel?.userName != null) {
       await write(key: Strings.userName, value: storedUserModel?.userName ?? '');

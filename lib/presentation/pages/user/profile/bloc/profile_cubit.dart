@@ -24,6 +24,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     try {
       emit(const ProfileState.loading());
       final user = await userRepository.getUserDetails();
+
       if (user != null && user.id != null) {
         emit(ProfileState.loaded(user: user));
       }

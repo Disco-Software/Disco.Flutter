@@ -12,6 +12,7 @@ class PostAuthor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print('lol1 $userName $photo ');
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
       color: const Color(0xFF201636),
