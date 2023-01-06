@@ -11,10 +11,10 @@ class SecureStorageRepository {
 
   SecureStorageRepository({required this.secureStorage});
 
-  Future<void>? write({required String key, required String value}) {
+  Future<void>? write({required String key, required String value}) async {
     log('SecureStorageRepository -->write', name: 'Secure Storage write');
 
-    secureStorage.write(key: key, value: value);
+    await secureStorage.write(key: key, value: value);
   }
 
   Future<String> read({required String key}) async {
@@ -36,7 +36,6 @@ class SecureStorageRepository {
       final currentFollowers = await secureStorage.read(key: Strings.currentFollowers) ?? '0';
       final moto = await secureStorage.read(key: Strings.moto) ?? '';
       final lastStatus = await secureStorage.read(key: Strings.lastStatus) ?? '';
-
 
       final model = StoredUserModel(
         userTarget: int.parse(goalFollowers),

@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:disco_app/data/network/api/account_details_api.dart';
@@ -12,8 +11,7 @@ class AccountDetailsRepository {
   AccountDetailsRepository({required this.accountDetailsApi});
 
   Future<User> setPhoto(String photo) async {
-    final formData =
-        FormData.fromMap({"Photo": await MultipartFile.fromFile(photo)});
+    final formData = FormData.fromMap({"Photo": await MultipartFile.fromFile(photo)});
 
     final json = await accountDetailsApi.setPhoto(formData);
 

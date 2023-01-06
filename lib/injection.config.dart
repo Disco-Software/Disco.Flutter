@@ -4,6 +4,7 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i6;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
@@ -36,16 +37,26 @@ import 'register_module.dart' as _i27; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
-_i1.GetIt $initGetIt(_i1.GetIt get,
-    {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
-  final gh = _i2.GetItHelper(get, environment, environmentFilter);
+_i1.GetIt $initGetIt(
+  _i1.GetIt get, {
+  String? environment,
+  _i2.EnvironmentFilter? environmentFilter,
+}) {
+  final gh = _i2.GetItHelper(
+    get,
+    environment,
+    environmentFilter,
+  );
   final registerModule = _$RegisterModule();
   gh.lazySingleton<_i3.AudioPlayer>(() => registerModule.audioPlayer());
   gh.lazySingleton<_i4.FlutterSecureStorage>(
       () => registerModule.flutterSecureStorage());
   gh.factory<_i5.SecureStorageRepository>(() => _i5.SecureStorageRepository(
       secureStorage: get<_i4.FlutterSecureStorage>()));
-  gh.factory<String>(() => registerModule.baseUrl, instanceName: 'BaseUrl');
+  gh.factory<String>(
+    () => registerModule.baseUrl,
+    instanceName: 'BaseUrl',
+  );
   gh.lazySingleton<_i6.Dio>(
       () => registerModule.dio(get<String>(instanceName: 'BaseUrl')));
   gh.factory<_i7.FollowerApi>(() => _i7.FollowerApi(client: get<_i6.Dio>()));
@@ -70,27 +81,33 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i19.LikeCubit>(
       () => _i19.LikeCubit(postRepository: get<_i10.PostRepository>()));
   gh.factory<_i20.NetworkClient>(() => _i20.NetworkClient(
-      dio: get<_i6.Dio>(),
-      authApi: get<_i18.AuthApi>(),
-      storage: get<_i4.FlutterSecureStorage>()));
+        dio: get<_i6.Dio>(),
+        authApi: get<_i18.AuthApi>(),
+        storage: get<_i4.FlutterSecureStorage>(),
+      ));
   gh.factory<_i21.SearchItemCubit>(() =>
       _i21.SearchItemCubit(searchRepository: get<_i13.SearchRepository>()));
   gh.factory<_i22.UserRepository>(
       () => _i22.UserRepository(authApi: get<_i18.AuthApi>()));
   gh.factory<_i23.LoginBloc>(() => _i23.LoginBloc(
-      userRepository: get<_i22.UserRepository>(),
-      secureStorageRepository: get<_i5.SecureStorageRepository>(),
-      dio: get<_i6.Dio>()));
+        userRepository: get<_i22.UserRepository>(),
+        secureStorageRepository: get<_i5.SecureStorageRepository>(),
+        dio: get<_i6.Dio>(),
+      ));
   gh.factory<_i24.ProfileCubit>(() => _i24.ProfileCubit(
-      userRepository: get<_i22.UserRepository>(),
-      accountDetailsRepository: get<_i17.AccountDetailsRepository>()));
+        userRepository: get<_i22.UserRepository>(),
+        accountDetailsRepository: get<_i17.AccountDetailsRepository>(),
+        storage: get<_i5.SecureStorageRepository>(),
+      ));
   gh.factory<_i25.RegistrationBloc>(() => _i25.RegistrationBloc(
-      userRepository: get<_i22.UserRepository>(),
-      secureStorageRepository: get<_i5.SecureStorageRepository>(),
-      dio: get<_i6.Dio>()));
+        userRepository: get<_i22.UserRepository>(),
+        secureStorageRepository: get<_i5.SecureStorageRepository>(),
+        dio: get<_i6.Dio>(),
+      ));
   gh.factory<_i26.SubscribeCubit>(() => _i26.SubscribeCubit(
-      userRepository: get<_i22.UserRepository>(),
-      followerRepository: get<_i8.FollowerRepository>()));
+        userRepository: get<_i22.UserRepository>(),
+        followerRepository: get<_i8.FollowerRepository>(),
+      ));
   return get;
 }
 

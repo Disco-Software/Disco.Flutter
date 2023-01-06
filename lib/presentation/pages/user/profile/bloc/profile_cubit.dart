@@ -1,9 +1,10 @@
 import 'dart:developer' as developer;
 
+import 'package:disco_app/data/local/local_storage.dart';
 import 'package:disco_app/data/network/network_models/like.dart';
-import 'package:disco_app/data/network/network_models/user_network.dart';
 import 'package:disco_app/data/network/repositories/account_details_repository.dart';
 import 'package:disco_app/data/network/repositories/user_repository.dart';
+import 'package:disco_app/res/strings.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,12 +12,15 @@ import 'profile_state.dart';
 
 @injectable
 class ProfileCubit extends Cubit<ProfileState> {
-  ProfileCubit(
-      {required this.userRepository, required this.accountDetailsRepository})
-      : super(const ProfileState.initial());
+  ProfileCubit({
+    required this.userRepository,
+    required this.accountDetailsRepository,
+    required this.storage,
+  }) : super(const ProfileState.initial());
 
   final UserRepository userRepository;
   final AccountDetailsRepository accountDetailsRepository;
+  final SecureStorageRepository storage;
 
   Future<void> init(List<Like>? likes) async {}
 
@@ -38,6 +42,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     try {
       emit(const ProfileState.loading());
       final user = await accountDetailsRepository.setPhoto(photoPath);
+      await storage.write(key: Strings.userPhoto, value: user.account?.photo ?? '');
       emit(ProfileState.loaded(user: user));
     } catch (error) {
       emit(const ProfileState.error());
