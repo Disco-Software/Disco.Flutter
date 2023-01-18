@@ -60,6 +60,8 @@
 	<string>For creating own songs </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>User can upload pictures and videos for creating beautiful post</string>
+	<key>NSCameraUsageDescription</key>
+	<string>User can upload photo for profile</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -13,7 +13,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:http/http.dart';
 
 import '../../../injection.dart';
 import '../post_button.dart';
@@ -183,7 +185,11 @@ class _UnicornPostState extends State<UnicornPost> with SingleTickerProviderStat
                       width: 22,
                       height: 22,
                     ),
-                    PostButton(onTap: () {}, imagePath: "assets/ic_save.svg"),
+                    PostButton(
+                        onTap: () {
+                          // _downloadFile(_currentPageIndex, widget.post);
+                        },
+                        imagePath: "assets/ic_save.svg"),
                     Positioned(
                       top: 8,
                       left: 8,
@@ -287,6 +293,18 @@ class _UnicornPostState extends State<UnicornPost> with SingleTickerProviderStat
       return userName ?? '';
     }
   }
+
+// Future<dynamic> _downloadFile(int currentPageIndex, Post post) async {
+//   final url = post.postSongs?.first.source ?? '';
+//   final dir = (await getApplicationDocumentsDirectory()).path;
+//   final filename = '$url';
+//   print('lol1$dir');
+//   File file = File('$dir/$filename');
+//   var request = await get(Uri.parse(url));
+//   var bytes = request.bodyBytes; //close();
+//   await file.writeAsBytes(bytes);
+//   print(file.path);
+// }
 
 // Future<bool> _isPostLiked(List<Like>? likes) async {
 //   print('lol2012');

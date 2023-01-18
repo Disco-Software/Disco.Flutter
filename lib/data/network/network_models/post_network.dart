@@ -3,10 +3,12 @@ import 'dart:developer';
 import 'package:disco_app/data/network/network_models/account_network.dart';
 import 'package:disco_app/data/network/network_models/song_network.dart';
 import 'package:disco_app/data/network/network_models/video_network.dart';
+import 'package:objectbox/objectbox.dart';
 
 import 'image_network.dart';
 import 'like.dart';
 
+@Entity()
 class Post {
   String? description;
   List<PostImage>? postImages;
@@ -15,6 +17,7 @@ class Post {
   int? profileId;
   List<Like>? likes;
   Account? account;
+  @Id()
   int? id;
 
   Post(

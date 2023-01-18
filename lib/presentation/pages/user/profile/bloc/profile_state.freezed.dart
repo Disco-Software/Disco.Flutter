@@ -1,6 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'profile_state.dart';
 
@@ -11,41 +12,7 @@ part of 'profile_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ProfileStateTearOff {
-  const _$ProfileStateTearOff();
-
-  ProfileStateInitial initial() {
-    return const ProfileStateInitial();
-  }
-
-  ProfileStateLoading loading() {
-    return const ProfileStateLoading();
-  }
-
-  ProfileStateLoaded loaded({required User user}) {
-    return ProfileStateLoaded(
-      user: user,
-    );
-  }
-
-  ProfileStateSaved saved(
-      {required User user, required List<Post> savedPosts}) {
-    return ProfileStateSaved(
-      user: user,
-      savedPosts: savedPosts,
-    );
-  }
-
-  ProfileStateError error() {
-    return const ProfileStateError();
-  }
-}
-
-/// @nodoc
-const $ProfileState = _$ProfileStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ProfileState {
@@ -60,11 +27,11 @@ mixin _$ProfileState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user, List<Post> savedPosts)? saved,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? loaded,
+    TResult? Function(User user, List<Post> savedPosts)? saved,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,11 +55,11 @@ mixin _$ProfileState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ProfileStateInitial value)? initial,
-    TResult Function(ProfileStateLoading value)? loading,
-    TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSaved value)? saved,
-    TResult Function(ProfileStateError value)? error,
+    TResult? Function(ProfileStateInitial value)? initial,
+    TResult? Function(ProfileStateLoading value)? loading,
+    TResult? Function(ProfileStateLoaded value)? loaded,
+    TResult? Function(ProfileStateSaved value)? saved,
+    TResult? Function(ProfileStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,35 +78,34 @@ mixin _$ProfileState {
 abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
           ProfileState value, $Res Function(ProfileState) then) =
-      _$ProfileStateCopyWithImpl<$Res>;
+      _$ProfileStateCopyWithImpl<$Res, ProfileState>;
 }
 
 /// @nodoc
-class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
+class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
+    implements $ProfileStateCopyWith<$Res> {
   _$ProfileStateCopyWithImpl(this._value, this._then);
 
-  final ProfileState _value;
   // ignore: unused_field
-  final $Res Function(ProfileState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $ProfileStateInitialCopyWith<$Res> {
-  factory $ProfileStateInitialCopyWith(
-          ProfileStateInitial value, $Res Function(ProfileStateInitial) then) =
-      _$ProfileStateInitialCopyWithImpl<$Res>;
+abstract class _$$ProfileStateInitialCopyWith<$Res> {
+  factory _$$ProfileStateInitialCopyWith(_$ProfileStateInitial value,
+          $Res Function(_$ProfileStateInitial) then) =
+      __$$ProfileStateInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProfileStateInitialCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res>
-    implements $ProfileStateInitialCopyWith<$Res> {
-  _$ProfileStateInitialCopyWithImpl(
-      ProfileStateInitial _value, $Res Function(ProfileStateInitial) _then)
-      : super(_value, (v) => _then(v as ProfileStateInitial));
-
-  @override
-  ProfileStateInitial get _value => super._value as ProfileStateInitial;
+class __$$ProfileStateInitialCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateInitial>
+    implements _$$ProfileStateInitialCopyWith<$Res> {
+  __$$ProfileStateInitialCopyWithImpl(
+      _$ProfileStateInitial _value, $Res Function(_$ProfileStateInitial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -155,7 +121,7 @@ class _$ProfileStateInitial implements ProfileStateInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ProfileStateInitial);
+        (other.runtimeType == runtimeType && other is _$ProfileStateInitial);
   }
 
   @override
@@ -176,11 +142,11 @@ class _$ProfileStateInitial implements ProfileStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user, List<Post> savedPosts)? saved,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? loaded,
+    TResult? Function(User user, List<Post> savedPosts)? saved,
+    TResult? Function()? error,
   }) {
     return initial?.call();
   }
@@ -216,11 +182,11 @@ class _$ProfileStateInitial implements ProfileStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ProfileStateInitial value)? initial,
-    TResult Function(ProfileStateLoading value)? loading,
-    TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSaved value)? saved,
-    TResult Function(ProfileStateError value)? error,
+    TResult? Function(ProfileStateInitial value)? initial,
+    TResult? Function(ProfileStateLoading value)? loading,
+    TResult? Function(ProfileStateLoaded value)? loaded,
+    TResult? Function(ProfileStateSaved value)? saved,
+    TResult? Function(ProfileStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -247,22 +213,19 @@ abstract class ProfileStateInitial implements ProfileState {
 }
 
 /// @nodoc
-abstract class $ProfileStateLoadingCopyWith<$Res> {
-  factory $ProfileStateLoadingCopyWith(
-          ProfileStateLoading value, $Res Function(ProfileStateLoading) then) =
-      _$ProfileStateLoadingCopyWithImpl<$Res>;
+abstract class _$$ProfileStateLoadingCopyWith<$Res> {
+  factory _$$ProfileStateLoadingCopyWith(_$ProfileStateLoading value,
+          $Res Function(_$ProfileStateLoading) then) =
+      __$$ProfileStateLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProfileStateLoadingCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res>
-    implements $ProfileStateLoadingCopyWith<$Res> {
-  _$ProfileStateLoadingCopyWithImpl(
-      ProfileStateLoading _value, $Res Function(ProfileStateLoading) _then)
-      : super(_value, (v) => _then(v as ProfileStateLoading));
-
-  @override
-  ProfileStateLoading get _value => super._value as ProfileStateLoading;
+class __$$ProfileStateLoadingCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateLoading>
+    implements _$$ProfileStateLoadingCopyWith<$Res> {
+  __$$ProfileStateLoadingCopyWithImpl(
+      _$ProfileStateLoading _value, $Res Function(_$ProfileStateLoading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -278,7 +241,7 @@ class _$ProfileStateLoading implements ProfileStateLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ProfileStateLoading);
+        (other.runtimeType == runtimeType && other is _$ProfileStateLoading);
   }
 
   @override
@@ -299,11 +262,11 @@ class _$ProfileStateLoading implements ProfileStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user, List<Post> savedPosts)? saved,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? loaded,
+    TResult? Function(User user, List<Post> savedPosts)? saved,
+    TResult? Function()? error,
   }) {
     return loading?.call();
   }
@@ -339,11 +302,11 @@ class _$ProfileStateLoading implements ProfileStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ProfileStateInitial value)? initial,
-    TResult Function(ProfileStateLoading value)? loading,
-    TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSaved value)? saved,
-    TResult Function(ProfileStateError value)? error,
+    TResult? Function(ProfileStateInitial value)? initial,
+    TResult? Function(ProfileStateLoading value)? loading,
+    TResult? Function(ProfileStateLoaded value)? loaded,
+    TResult? Function(ProfileStateSaved value)? saved,
+    TResult? Function(ProfileStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -370,30 +333,29 @@ abstract class ProfileStateLoading implements ProfileState {
 }
 
 /// @nodoc
-abstract class $ProfileStateLoadedCopyWith<$Res> {
-  factory $ProfileStateLoadedCopyWith(
-          ProfileStateLoaded value, $Res Function(ProfileStateLoaded) then) =
-      _$ProfileStateLoadedCopyWithImpl<$Res>;
+abstract class _$$ProfileStateLoadedCopyWith<$Res> {
+  factory _$$ProfileStateLoadedCopyWith(_$ProfileStateLoaded value,
+          $Res Function(_$ProfileStateLoaded) then) =
+      __$$ProfileStateLoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call({User user});
 }
 
 /// @nodoc
-class _$ProfileStateLoadedCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res>
-    implements $ProfileStateLoadedCopyWith<$Res> {
-  _$ProfileStateLoadedCopyWithImpl(
-      ProfileStateLoaded _value, $Res Function(ProfileStateLoaded) _then)
-      : super(_value, (v) => _then(v as ProfileStateLoaded));
+class __$$ProfileStateLoadedCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateLoaded>
+    implements _$$ProfileStateLoadedCopyWith<$Res> {
+  __$$ProfileStateLoadedCopyWithImpl(
+      _$ProfileStateLoaded _value, $Res Function(_$ProfileStateLoaded) _then)
+      : super(_value, _then);
 
-  @override
-  ProfileStateLoaded get _value => super._value as ProfileStateLoaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = freezed,
+    Object? user = null,
   }) {
-    return _then(ProfileStateLoaded(
-      user: user == freezed
+    return _then(_$ProfileStateLoaded(
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User,
@@ -418,18 +380,19 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ProfileStateLoaded &&
-            const DeepCollectionEquality().equals(other.user, user));
+            other is _$ProfileStateLoaded &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(user));
+  int get hashCode => Object.hash(runtimeType, user);
 
   @JsonKey(ignore: true)
   @override
-  $ProfileStateLoadedCopyWith<ProfileStateLoaded> get copyWith =>
-      _$ProfileStateLoadedCopyWithImpl<ProfileStateLoaded>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ProfileStateLoadedCopyWith<_$ProfileStateLoaded> get copyWith =>
+      __$$ProfileStateLoadedCopyWithImpl<_$ProfileStateLoaded>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -446,11 +409,11 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user, List<Post> savedPosts)? saved,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? loaded,
+    TResult? Function(User user, List<Post> savedPosts)? saved,
+    TResult? Function()? error,
   }) {
     return loaded?.call(user);
   }
@@ -486,11 +449,11 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ProfileStateInitial value)? initial,
-    TResult Function(ProfileStateLoading value)? loading,
-    TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSaved value)? saved,
-    TResult Function(ProfileStateError value)? error,
+    TResult? Function(ProfileStateInitial value)? initial,
+    TResult? Function(ProfileStateLoading value)? loading,
+    TResult? Function(ProfileStateLoaded value)? loaded,
+    TResult? Function(ProfileStateSaved value)? saved,
+    TResult? Function(ProfileStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -513,45 +476,45 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
 }
 
 abstract class ProfileStateLoaded implements ProfileState {
-  const factory ProfileStateLoaded({required User user}) = _$ProfileStateLoaded;
+  const factory ProfileStateLoaded({required final User user}) =
+      _$ProfileStateLoaded;
 
   User get user;
   @JsonKey(ignore: true)
-  $ProfileStateLoadedCopyWith<ProfileStateLoaded> get copyWith =>
+  _$$ProfileStateLoadedCopyWith<_$ProfileStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProfileStateSavedCopyWith<$Res> {
-  factory $ProfileStateSavedCopyWith(
-          ProfileStateSaved value, $Res Function(ProfileStateSaved) then) =
-      _$ProfileStateSavedCopyWithImpl<$Res>;
+abstract class _$$ProfileStateSavedCopyWith<$Res> {
+  factory _$$ProfileStateSavedCopyWith(
+          _$ProfileStateSaved value, $Res Function(_$ProfileStateSaved) then) =
+      __$$ProfileStateSavedCopyWithImpl<$Res>;
+  @useResult
   $Res call({User user, List<Post> savedPosts});
 }
 
 /// @nodoc
-class _$ProfileStateSavedCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res>
-    implements $ProfileStateSavedCopyWith<$Res> {
-  _$ProfileStateSavedCopyWithImpl(
-      ProfileStateSaved _value, $Res Function(ProfileStateSaved) _then)
-      : super(_value, (v) => _then(v as ProfileStateSaved));
+class __$$ProfileStateSavedCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateSaved>
+    implements _$$ProfileStateSavedCopyWith<$Res> {
+  __$$ProfileStateSavedCopyWithImpl(
+      _$ProfileStateSaved _value, $Res Function(_$ProfileStateSaved) _then)
+      : super(_value, _then);
 
-  @override
-  ProfileStateSaved get _value => super._value as ProfileStateSaved;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = freezed,
-    Object? savedPosts = freezed,
+    Object? user = null,
+    Object? savedPosts = null,
   }) {
-    return _then(ProfileStateSaved(
-      user: user == freezed
+    return _then(_$ProfileStateSaved(
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User,
-      savedPosts: savedPosts == freezed
-          ? _value.savedPosts
+      savedPosts: null == savedPosts
+          ? _value._savedPosts
           : savedPosts // ignore: cast_nullable_to_non_nullable
               as List<Post>,
     ));
@@ -561,12 +524,19 @@ class _$ProfileStateSavedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ProfileStateSaved implements ProfileStateSaved {
-  const _$ProfileStateSaved({required this.user, required this.savedPosts});
+  const _$ProfileStateSaved(
+      {required this.user, required final List<Post> savedPosts})
+      : _savedPosts = savedPosts;
 
   @override
   final User user;
+  final List<Post> _savedPosts;
   @override
-  final List<Post> savedPosts;
+  List<Post> get savedPosts {
+    if (_savedPosts is EqualUnmodifiableListView) return _savedPosts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_savedPosts);
+  }
 
   @override
   String toString() {
@@ -577,22 +547,21 @@ class _$ProfileStateSaved implements ProfileStateSaved {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ProfileStateSaved &&
-            const DeepCollectionEquality().equals(other.user, user) &&
+            other is _$ProfileStateSaved &&
+            (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality()
-                .equals(other.savedPosts, savedPosts));
+                .equals(other._savedPosts, _savedPosts));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(user),
-      const DeepCollectionEquality().hash(savedPosts));
+      runtimeType, user, const DeepCollectionEquality().hash(_savedPosts));
 
   @JsonKey(ignore: true)
   @override
-  $ProfileStateSavedCopyWith<ProfileStateSaved> get copyWith =>
-      _$ProfileStateSavedCopyWithImpl<ProfileStateSaved>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ProfileStateSavedCopyWith<_$ProfileStateSaved> get copyWith =>
+      __$$ProfileStateSavedCopyWithImpl<_$ProfileStateSaved>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -609,11 +578,11 @@ class _$ProfileStateSaved implements ProfileStateSaved {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user, List<Post> savedPosts)? saved,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? loaded,
+    TResult? Function(User user, List<Post> savedPosts)? saved,
+    TResult? Function()? error,
   }) {
     return saved?.call(user, savedPosts);
   }
@@ -649,11 +618,11 @@ class _$ProfileStateSaved implements ProfileStateSaved {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ProfileStateInitial value)? initial,
-    TResult Function(ProfileStateLoading value)? loading,
-    TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSaved value)? saved,
-    TResult Function(ProfileStateError value)? error,
+    TResult? Function(ProfileStateInitial value)? initial,
+    TResult? Function(ProfileStateLoading value)? loading,
+    TResult? Function(ProfileStateLoaded value)? loaded,
+    TResult? Function(ProfileStateSaved value)? saved,
+    TResult? Function(ProfileStateError value)? error,
   }) {
     return saved?.call(this);
   }
@@ -677,33 +646,30 @@ class _$ProfileStateSaved implements ProfileStateSaved {
 
 abstract class ProfileStateSaved implements ProfileState {
   const factory ProfileStateSaved(
-      {required User user,
-      required List<Post> savedPosts}) = _$ProfileStateSaved;
+      {required final User user,
+      required final List<Post> savedPosts}) = _$ProfileStateSaved;
 
   User get user;
   List<Post> get savedPosts;
   @JsonKey(ignore: true)
-  $ProfileStateSavedCopyWith<ProfileStateSaved> get copyWith =>
+  _$$ProfileStateSavedCopyWith<_$ProfileStateSaved> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProfileStateErrorCopyWith<$Res> {
-  factory $ProfileStateErrorCopyWith(
-          ProfileStateError value, $Res Function(ProfileStateError) then) =
-      _$ProfileStateErrorCopyWithImpl<$Res>;
+abstract class _$$ProfileStateErrorCopyWith<$Res> {
+  factory _$$ProfileStateErrorCopyWith(
+          _$ProfileStateError value, $Res Function(_$ProfileStateError) then) =
+      __$$ProfileStateErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProfileStateErrorCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res>
-    implements $ProfileStateErrorCopyWith<$Res> {
-  _$ProfileStateErrorCopyWithImpl(
-      ProfileStateError _value, $Res Function(ProfileStateError) _then)
-      : super(_value, (v) => _then(v as ProfileStateError));
-
-  @override
-  ProfileStateError get _value => super._value as ProfileStateError;
+class __$$ProfileStateErrorCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateError>
+    implements _$$ProfileStateErrorCopyWith<$Res> {
+  __$$ProfileStateErrorCopyWithImpl(
+      _$ProfileStateError _value, $Res Function(_$ProfileStateError) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -719,7 +685,7 @@ class _$ProfileStateError implements ProfileStateError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ProfileStateError);
+        (other.runtimeType == runtimeType && other is _$ProfileStateError);
   }
 
   @override
@@ -740,11 +706,11 @@ class _$ProfileStateError implements ProfileStateError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user, List<Post> savedPosts)? saved,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? loaded,
+    TResult? Function(User user, List<Post> savedPosts)? saved,
+    TResult? Function()? error,
   }) {
     return error?.call();
   }
@@ -780,11 +746,11 @@ class _$ProfileStateError implements ProfileStateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ProfileStateInitial value)? initial,
-    TResult Function(ProfileStateLoading value)? loading,
-    TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSaved value)? saved,
-    TResult Function(ProfileStateError value)? error,
+    TResult? Function(ProfileStateInitial value)? initial,
+    TResult? Function(ProfileStateLoading value)? loading,
+    TResult? Function(ProfileStateLoaded value)? loaded,
+    TResult? Function(ProfileStateSaved value)? saved,
+    TResult? Function(ProfileStateError value)? error,
   }) {
     return error?.call(this);
   }

@@ -1,6 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'subscribe_state.dart';
 
@@ -11,27 +12,7 @@ part of 'subscribe_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SubscribeStateTearOff {
-  const _$SubscribeStateTearOff();
-
-  SubscribeStateLoading loading() {
-    return const SubscribeStateLoading();
-  }
-
-  SubscribeStateSubscribed subscribed() {
-    return const SubscribeStateSubscribed();
-  }
-
-  SubscribeStateUnsubscribed unsubscribed() {
-    return const SubscribeStateUnsubscribed();
-  }
-}
-
-/// @nodoc
-const $SubscribeState = _$SubscribeStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SubscribeState {
@@ -44,9 +25,9 @@ mixin _$SubscribeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? subscribed,
-    TResult Function()? unsubscribed,
+    TResult? Function()? loading,
+    TResult? Function()? subscribed,
+    TResult? Function()? unsubscribed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,9 +47,9 @@ mixin _$SubscribeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SubscribeStateLoading value)? loading,
-    TResult Function(SubscribeStateSubscribed value)? subscribed,
-    TResult Function(SubscribeStateUnsubscribed value)? unsubscribed,
+    TResult? Function(SubscribeStateLoading value)? loading,
+    TResult? Function(SubscribeStateSubscribed value)? subscribed,
+    TResult? Function(SubscribeStateUnsubscribed value)? unsubscribed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,36 +66,34 @@ mixin _$SubscribeState {
 abstract class $SubscribeStateCopyWith<$Res> {
   factory $SubscribeStateCopyWith(
           SubscribeState value, $Res Function(SubscribeState) then) =
-      _$SubscribeStateCopyWithImpl<$Res>;
+      _$SubscribeStateCopyWithImpl<$Res, SubscribeState>;
 }
 
 /// @nodoc
-class _$SubscribeStateCopyWithImpl<$Res>
+class _$SubscribeStateCopyWithImpl<$Res, $Val extends SubscribeState>
     implements $SubscribeStateCopyWith<$Res> {
   _$SubscribeStateCopyWithImpl(this._value, this._then);
 
-  final SubscribeState _value;
   // ignore: unused_field
-  final $Res Function(SubscribeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $SubscribeStateLoadingCopyWith<$Res> {
-  factory $SubscribeStateLoadingCopyWith(SubscribeStateLoading value,
-          $Res Function(SubscribeStateLoading) then) =
-      _$SubscribeStateLoadingCopyWithImpl<$Res>;
+abstract class _$$SubscribeStateLoadingCopyWith<$Res> {
+  factory _$$SubscribeStateLoadingCopyWith(_$SubscribeStateLoading value,
+          $Res Function(_$SubscribeStateLoading) then) =
+      __$$SubscribeStateLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SubscribeStateLoadingCopyWithImpl<$Res>
-    extends _$SubscribeStateCopyWithImpl<$Res>
-    implements $SubscribeStateLoadingCopyWith<$Res> {
-  _$SubscribeStateLoadingCopyWithImpl(
-      SubscribeStateLoading _value, $Res Function(SubscribeStateLoading) _then)
-      : super(_value, (v) => _then(v as SubscribeStateLoading));
-
-  @override
-  SubscribeStateLoading get _value => super._value as SubscribeStateLoading;
+class __$$SubscribeStateLoadingCopyWithImpl<$Res>
+    extends _$SubscribeStateCopyWithImpl<$Res, _$SubscribeStateLoading>
+    implements _$$SubscribeStateLoadingCopyWith<$Res> {
+  __$$SubscribeStateLoadingCopyWithImpl(_$SubscribeStateLoading _value,
+      $Res Function(_$SubscribeStateLoading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -130,7 +109,7 @@ class _$SubscribeStateLoading implements SubscribeStateLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SubscribeStateLoading);
+        (other.runtimeType == runtimeType && other is _$SubscribeStateLoading);
   }
 
   @override
@@ -149,9 +128,9 @@ class _$SubscribeStateLoading implements SubscribeStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? subscribed,
-    TResult Function()? unsubscribed,
+    TResult? Function()? loading,
+    TResult? Function()? subscribed,
+    TResult? Function()? unsubscribed,
   }) {
     return loading?.call();
   }
@@ -183,9 +162,9 @@ class _$SubscribeStateLoading implements SubscribeStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SubscribeStateLoading value)? loading,
-    TResult Function(SubscribeStateSubscribed value)? subscribed,
-    TResult Function(SubscribeStateUnsubscribed value)? unsubscribed,
+    TResult? Function(SubscribeStateLoading value)? loading,
+    TResult? Function(SubscribeStateSubscribed value)? subscribed,
+    TResult? Function(SubscribeStateUnsubscribed value)? unsubscribed,
   }) {
     return loading?.call(this);
   }
@@ -210,23 +189,19 @@ abstract class SubscribeStateLoading implements SubscribeState {
 }
 
 /// @nodoc
-abstract class $SubscribeStateSubscribedCopyWith<$Res> {
-  factory $SubscribeStateSubscribedCopyWith(SubscribeStateSubscribed value,
-          $Res Function(SubscribeStateSubscribed) then) =
-      _$SubscribeStateSubscribedCopyWithImpl<$Res>;
+abstract class _$$SubscribeStateSubscribedCopyWith<$Res> {
+  factory _$$SubscribeStateSubscribedCopyWith(_$SubscribeStateSubscribed value,
+          $Res Function(_$SubscribeStateSubscribed) then) =
+      __$$SubscribeStateSubscribedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SubscribeStateSubscribedCopyWithImpl<$Res>
-    extends _$SubscribeStateCopyWithImpl<$Res>
-    implements $SubscribeStateSubscribedCopyWith<$Res> {
-  _$SubscribeStateSubscribedCopyWithImpl(SubscribeStateSubscribed _value,
-      $Res Function(SubscribeStateSubscribed) _then)
-      : super(_value, (v) => _then(v as SubscribeStateSubscribed));
-
-  @override
-  SubscribeStateSubscribed get _value =>
-      super._value as SubscribeStateSubscribed;
+class __$$SubscribeStateSubscribedCopyWithImpl<$Res>
+    extends _$SubscribeStateCopyWithImpl<$Res, _$SubscribeStateSubscribed>
+    implements _$$SubscribeStateSubscribedCopyWith<$Res> {
+  __$$SubscribeStateSubscribedCopyWithImpl(_$SubscribeStateSubscribed _value,
+      $Res Function(_$SubscribeStateSubscribed) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -242,7 +217,8 @@ class _$SubscribeStateSubscribed implements SubscribeStateSubscribed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SubscribeStateSubscribed);
+        (other.runtimeType == runtimeType &&
+            other is _$SubscribeStateSubscribed);
   }
 
   @override
@@ -261,9 +237,9 @@ class _$SubscribeStateSubscribed implements SubscribeStateSubscribed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? subscribed,
-    TResult Function()? unsubscribed,
+    TResult? Function()? loading,
+    TResult? Function()? subscribed,
+    TResult? Function()? unsubscribed,
   }) {
     return subscribed?.call();
   }
@@ -295,9 +271,9 @@ class _$SubscribeStateSubscribed implements SubscribeStateSubscribed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SubscribeStateLoading value)? loading,
-    TResult Function(SubscribeStateSubscribed value)? subscribed,
-    TResult Function(SubscribeStateUnsubscribed value)? unsubscribed,
+    TResult? Function(SubscribeStateLoading value)? loading,
+    TResult? Function(SubscribeStateSubscribed value)? subscribed,
+    TResult? Function(SubscribeStateUnsubscribed value)? unsubscribed,
   }) {
     return subscribed?.call(this);
   }
@@ -322,23 +298,21 @@ abstract class SubscribeStateSubscribed implements SubscribeState {
 }
 
 /// @nodoc
-abstract class $SubscribeStateUnsubscribedCopyWith<$Res> {
-  factory $SubscribeStateUnsubscribedCopyWith(SubscribeStateUnsubscribed value,
-          $Res Function(SubscribeStateUnsubscribed) then) =
-      _$SubscribeStateUnsubscribedCopyWithImpl<$Res>;
+abstract class _$$SubscribeStateUnsubscribedCopyWith<$Res> {
+  factory _$$SubscribeStateUnsubscribedCopyWith(
+          _$SubscribeStateUnsubscribed value,
+          $Res Function(_$SubscribeStateUnsubscribed) then) =
+      __$$SubscribeStateUnsubscribedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SubscribeStateUnsubscribedCopyWithImpl<$Res>
-    extends _$SubscribeStateCopyWithImpl<$Res>
-    implements $SubscribeStateUnsubscribedCopyWith<$Res> {
-  _$SubscribeStateUnsubscribedCopyWithImpl(SubscribeStateUnsubscribed _value,
-      $Res Function(SubscribeStateUnsubscribed) _then)
-      : super(_value, (v) => _then(v as SubscribeStateUnsubscribed));
-
-  @override
-  SubscribeStateUnsubscribed get _value =>
-      super._value as SubscribeStateUnsubscribed;
+class __$$SubscribeStateUnsubscribedCopyWithImpl<$Res>
+    extends _$SubscribeStateCopyWithImpl<$Res, _$SubscribeStateUnsubscribed>
+    implements _$$SubscribeStateUnsubscribedCopyWith<$Res> {
+  __$$SubscribeStateUnsubscribedCopyWithImpl(
+      _$SubscribeStateUnsubscribed _value,
+      $Res Function(_$SubscribeStateUnsubscribed) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -355,7 +329,7 @@ class _$SubscribeStateUnsubscribed implements SubscribeStateUnsubscribed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SubscribeStateUnsubscribed);
+            other is _$SubscribeStateUnsubscribed);
   }
 
   @override
@@ -374,9 +348,9 @@ class _$SubscribeStateUnsubscribed implements SubscribeStateUnsubscribed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? subscribed,
-    TResult Function()? unsubscribed,
+    TResult? Function()? loading,
+    TResult? Function()? subscribed,
+    TResult? Function()? unsubscribed,
   }) {
     return unsubscribed?.call();
   }
@@ -408,9 +382,9 @@ class _$SubscribeStateUnsubscribed implements SubscribeStateUnsubscribed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SubscribeStateLoading value)? loading,
-    TResult Function(SubscribeStateSubscribed value)? subscribed,
-    TResult Function(SubscribeStateUnsubscribed value)? unsubscribed,
+    TResult? Function(SubscribeStateLoading value)? loading,
+    TResult? Function(SubscribeStateSubscribed value)? subscribed,
+    TResult? Function(SubscribeStateUnsubscribed value)? unsubscribed,
   }) {
     return unsubscribed?.call(this);
   }

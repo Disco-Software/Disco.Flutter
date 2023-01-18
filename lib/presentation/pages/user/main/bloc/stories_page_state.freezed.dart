@@ -1,6 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'stories_page_state.dart';
 
@@ -11,33 +12,7 @@ part of 'stories_page_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$StoriesPageStateTearOff {
-  const _$StoriesPageStateTearOff();
-
-  StoriesPageStateInitial initial() {
-    return const StoriesPageStateInitial();
-  }
-
-  StoriesPageStateRunning running({required int duration}) {
-    return StoriesPageStateRunning(
-      duration: duration,
-    );
-  }
-
-  StoriesPageStateFinished finished() {
-    return const StoriesPageStateFinished();
-  }
-
-  StoriesPageStatePaused paused() {
-    return const StoriesPageStatePaused();
-  }
-}
-
-/// @nodoc
-const $StoriesPageState = _$StoriesPageStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$StoriesPageState {
@@ -51,10 +26,10 @@ mixin _$StoriesPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int duration)? running,
-    TResult Function()? finished,
-    TResult Function()? paused,
+    TResult? Function()? initial,
+    TResult? Function(int duration)? running,
+    TResult? Function()? finished,
+    TResult? Function()? paused,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,10 +51,10 @@ mixin _$StoriesPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StoriesPageStateInitial value)? initial,
-    TResult Function(StoriesPageStateRunning value)? running,
-    TResult Function(StoriesPageStateFinished value)? finished,
-    TResult Function(StoriesPageStatePaused value)? paused,
+    TResult? Function(StoriesPageStateInitial value)? initial,
+    TResult? Function(StoriesPageStateRunning value)? running,
+    TResult? Function(StoriesPageStateFinished value)? finished,
+    TResult? Function(StoriesPageStatePaused value)? paused,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,36 +72,34 @@ mixin _$StoriesPageState {
 abstract class $StoriesPageStateCopyWith<$Res> {
   factory $StoriesPageStateCopyWith(
           StoriesPageState value, $Res Function(StoriesPageState) then) =
-      _$StoriesPageStateCopyWithImpl<$Res>;
+      _$StoriesPageStateCopyWithImpl<$Res, StoriesPageState>;
 }
 
 /// @nodoc
-class _$StoriesPageStateCopyWithImpl<$Res>
+class _$StoriesPageStateCopyWithImpl<$Res, $Val extends StoriesPageState>
     implements $StoriesPageStateCopyWith<$Res> {
   _$StoriesPageStateCopyWithImpl(this._value, this._then);
 
-  final StoriesPageState _value;
   // ignore: unused_field
-  final $Res Function(StoriesPageState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $StoriesPageStateInitialCopyWith<$Res> {
-  factory $StoriesPageStateInitialCopyWith(StoriesPageStateInitial value,
-          $Res Function(StoriesPageStateInitial) then) =
-      _$StoriesPageStateInitialCopyWithImpl<$Res>;
+abstract class _$$StoriesPageStateInitialCopyWith<$Res> {
+  factory _$$StoriesPageStateInitialCopyWith(_$StoriesPageStateInitial value,
+          $Res Function(_$StoriesPageStateInitial) then) =
+      __$$StoriesPageStateInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$StoriesPageStateInitialCopyWithImpl<$Res>
-    extends _$StoriesPageStateCopyWithImpl<$Res>
-    implements $StoriesPageStateInitialCopyWith<$Res> {
-  _$StoriesPageStateInitialCopyWithImpl(StoriesPageStateInitial _value,
-      $Res Function(StoriesPageStateInitial) _then)
-      : super(_value, (v) => _then(v as StoriesPageStateInitial));
-
-  @override
-  StoriesPageStateInitial get _value => super._value as StoriesPageStateInitial;
+class __$$StoriesPageStateInitialCopyWithImpl<$Res>
+    extends _$StoriesPageStateCopyWithImpl<$Res, _$StoriesPageStateInitial>
+    implements _$$StoriesPageStateInitialCopyWith<$Res> {
+  __$$StoriesPageStateInitialCopyWithImpl(_$StoriesPageStateInitial _value,
+      $Res Function(_$StoriesPageStateInitial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -142,7 +115,8 @@ class _$StoriesPageStateInitial implements StoriesPageStateInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is StoriesPageStateInitial);
+        (other.runtimeType == runtimeType &&
+            other is _$StoriesPageStateInitial);
   }
 
   @override
@@ -162,10 +136,10 @@ class _$StoriesPageStateInitial implements StoriesPageStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int duration)? running,
-    TResult Function()? finished,
-    TResult Function()? paused,
+    TResult? Function()? initial,
+    TResult? Function(int duration)? running,
+    TResult? Function()? finished,
+    TResult? Function()? paused,
   }) {
     return initial?.call();
   }
@@ -199,10 +173,10 @@ class _$StoriesPageStateInitial implements StoriesPageStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StoriesPageStateInitial value)? initial,
-    TResult Function(StoriesPageStateRunning value)? running,
-    TResult Function(StoriesPageStateFinished value)? finished,
-    TResult Function(StoriesPageStatePaused value)? paused,
+    TResult? Function(StoriesPageStateInitial value)? initial,
+    TResult? Function(StoriesPageStateRunning value)? running,
+    TResult? Function(StoriesPageStateFinished value)? finished,
+    TResult? Function(StoriesPageStatePaused value)? paused,
   }) {
     return initial?.call(this);
   }
@@ -228,30 +202,29 @@ abstract class StoriesPageStateInitial implements StoriesPageState {
 }
 
 /// @nodoc
-abstract class $StoriesPageStateRunningCopyWith<$Res> {
-  factory $StoriesPageStateRunningCopyWith(StoriesPageStateRunning value,
-          $Res Function(StoriesPageStateRunning) then) =
-      _$StoriesPageStateRunningCopyWithImpl<$Res>;
+abstract class _$$StoriesPageStateRunningCopyWith<$Res> {
+  factory _$$StoriesPageStateRunningCopyWith(_$StoriesPageStateRunning value,
+          $Res Function(_$StoriesPageStateRunning) then) =
+      __$$StoriesPageStateRunningCopyWithImpl<$Res>;
+  @useResult
   $Res call({int duration});
 }
 
 /// @nodoc
-class _$StoriesPageStateRunningCopyWithImpl<$Res>
-    extends _$StoriesPageStateCopyWithImpl<$Res>
-    implements $StoriesPageStateRunningCopyWith<$Res> {
-  _$StoriesPageStateRunningCopyWithImpl(StoriesPageStateRunning _value,
-      $Res Function(StoriesPageStateRunning) _then)
-      : super(_value, (v) => _then(v as StoriesPageStateRunning));
+class __$$StoriesPageStateRunningCopyWithImpl<$Res>
+    extends _$StoriesPageStateCopyWithImpl<$Res, _$StoriesPageStateRunning>
+    implements _$$StoriesPageStateRunningCopyWith<$Res> {
+  __$$StoriesPageStateRunningCopyWithImpl(_$StoriesPageStateRunning _value,
+      $Res Function(_$StoriesPageStateRunning) _then)
+      : super(_value, _then);
 
-  @override
-  StoriesPageStateRunning get _value => super._value as StoriesPageStateRunning;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? duration = freezed,
+    Object? duration = null,
   }) {
-    return _then(StoriesPageStateRunning(
-      duration: duration == freezed
+    return _then(_$StoriesPageStateRunning(
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int,
@@ -276,18 +249,19 @@ class _$StoriesPageStateRunning implements StoriesPageStateRunning {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is StoriesPageStateRunning &&
-            const DeepCollectionEquality().equals(other.duration, duration));
+            other is _$StoriesPageStateRunning &&
+            (identical(other.duration, duration) ||
+                other.duration == duration));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(duration));
+  int get hashCode => Object.hash(runtimeType, duration);
 
   @JsonKey(ignore: true)
   @override
-  $StoriesPageStateRunningCopyWith<StoriesPageStateRunning> get copyWith =>
-      _$StoriesPageStateRunningCopyWithImpl<StoriesPageStateRunning>(
+  @pragma('vm:prefer-inline')
+  _$$StoriesPageStateRunningCopyWith<_$StoriesPageStateRunning> get copyWith =>
+      __$$StoriesPageStateRunningCopyWithImpl<_$StoriesPageStateRunning>(
           this, _$identity);
 
   @override
@@ -304,10 +278,10 @@ class _$StoriesPageStateRunning implements StoriesPageStateRunning {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int duration)? running,
-    TResult Function()? finished,
-    TResult Function()? paused,
+    TResult? Function()? initial,
+    TResult? Function(int duration)? running,
+    TResult? Function()? finished,
+    TResult? Function()? paused,
   }) {
     return running?.call(duration);
   }
@@ -341,10 +315,10 @@ class _$StoriesPageStateRunning implements StoriesPageStateRunning {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StoriesPageStateInitial value)? initial,
-    TResult Function(StoriesPageStateRunning value)? running,
-    TResult Function(StoriesPageStateFinished value)? finished,
-    TResult Function(StoriesPageStatePaused value)? paused,
+    TResult? Function(StoriesPageStateInitial value)? initial,
+    TResult? Function(StoriesPageStateRunning value)? running,
+    TResult? Function(StoriesPageStateFinished value)? finished,
+    TResult? Function(StoriesPageStatePaused value)? paused,
   }) {
     return running?.call(this);
   }
@@ -366,33 +340,29 @@ class _$StoriesPageStateRunning implements StoriesPageStateRunning {
 }
 
 abstract class StoriesPageStateRunning implements StoriesPageState {
-  const factory StoriesPageStateRunning({required int duration}) =
+  const factory StoriesPageStateRunning({required final int duration}) =
       _$StoriesPageStateRunning;
 
   int get duration;
   @JsonKey(ignore: true)
-  $StoriesPageStateRunningCopyWith<StoriesPageStateRunning> get copyWith =>
+  _$$StoriesPageStateRunningCopyWith<_$StoriesPageStateRunning> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StoriesPageStateFinishedCopyWith<$Res> {
-  factory $StoriesPageStateFinishedCopyWith(StoriesPageStateFinished value,
-          $Res Function(StoriesPageStateFinished) then) =
-      _$StoriesPageStateFinishedCopyWithImpl<$Res>;
+abstract class _$$StoriesPageStateFinishedCopyWith<$Res> {
+  factory _$$StoriesPageStateFinishedCopyWith(_$StoriesPageStateFinished value,
+          $Res Function(_$StoriesPageStateFinished) then) =
+      __$$StoriesPageStateFinishedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$StoriesPageStateFinishedCopyWithImpl<$Res>
-    extends _$StoriesPageStateCopyWithImpl<$Res>
-    implements $StoriesPageStateFinishedCopyWith<$Res> {
-  _$StoriesPageStateFinishedCopyWithImpl(StoriesPageStateFinished _value,
-      $Res Function(StoriesPageStateFinished) _then)
-      : super(_value, (v) => _then(v as StoriesPageStateFinished));
-
-  @override
-  StoriesPageStateFinished get _value =>
-      super._value as StoriesPageStateFinished;
+class __$$StoriesPageStateFinishedCopyWithImpl<$Res>
+    extends _$StoriesPageStateCopyWithImpl<$Res, _$StoriesPageStateFinished>
+    implements _$$StoriesPageStateFinishedCopyWith<$Res> {
+  __$$StoriesPageStateFinishedCopyWithImpl(_$StoriesPageStateFinished _value,
+      $Res Function(_$StoriesPageStateFinished) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -408,7 +378,8 @@ class _$StoriesPageStateFinished implements StoriesPageStateFinished {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is StoriesPageStateFinished);
+        (other.runtimeType == runtimeType &&
+            other is _$StoriesPageStateFinished);
   }
 
   @override
@@ -428,10 +399,10 @@ class _$StoriesPageStateFinished implements StoriesPageStateFinished {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int duration)? running,
-    TResult Function()? finished,
-    TResult Function()? paused,
+    TResult? Function()? initial,
+    TResult? Function(int duration)? running,
+    TResult? Function()? finished,
+    TResult? Function()? paused,
   }) {
     return finished?.call();
   }
@@ -465,10 +436,10 @@ class _$StoriesPageStateFinished implements StoriesPageStateFinished {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StoriesPageStateInitial value)? initial,
-    TResult Function(StoriesPageStateRunning value)? running,
-    TResult Function(StoriesPageStateFinished value)? finished,
-    TResult Function(StoriesPageStatePaused value)? paused,
+    TResult? Function(StoriesPageStateInitial value)? initial,
+    TResult? Function(StoriesPageStateRunning value)? running,
+    TResult? Function(StoriesPageStateFinished value)? finished,
+    TResult? Function(StoriesPageStatePaused value)? paused,
   }) {
     return finished?.call(this);
   }
@@ -494,22 +465,19 @@ abstract class StoriesPageStateFinished implements StoriesPageState {
 }
 
 /// @nodoc
-abstract class $StoriesPageStatePausedCopyWith<$Res> {
-  factory $StoriesPageStatePausedCopyWith(StoriesPageStatePaused value,
-          $Res Function(StoriesPageStatePaused) then) =
-      _$StoriesPageStatePausedCopyWithImpl<$Res>;
+abstract class _$$StoriesPageStatePausedCopyWith<$Res> {
+  factory _$$StoriesPageStatePausedCopyWith(_$StoriesPageStatePaused value,
+          $Res Function(_$StoriesPageStatePaused) then) =
+      __$$StoriesPageStatePausedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$StoriesPageStatePausedCopyWithImpl<$Res>
-    extends _$StoriesPageStateCopyWithImpl<$Res>
-    implements $StoriesPageStatePausedCopyWith<$Res> {
-  _$StoriesPageStatePausedCopyWithImpl(StoriesPageStatePaused _value,
-      $Res Function(StoriesPageStatePaused) _then)
-      : super(_value, (v) => _then(v as StoriesPageStatePaused));
-
-  @override
-  StoriesPageStatePaused get _value => super._value as StoriesPageStatePaused;
+class __$$StoriesPageStatePausedCopyWithImpl<$Res>
+    extends _$StoriesPageStateCopyWithImpl<$Res, _$StoriesPageStatePaused>
+    implements _$$StoriesPageStatePausedCopyWith<$Res> {
+  __$$StoriesPageStatePausedCopyWithImpl(_$StoriesPageStatePaused _value,
+      $Res Function(_$StoriesPageStatePaused) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -525,7 +493,7 @@ class _$StoriesPageStatePaused implements StoriesPageStatePaused {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is StoriesPageStatePaused);
+        (other.runtimeType == runtimeType && other is _$StoriesPageStatePaused);
   }
 
   @override
@@ -545,10 +513,10 @@ class _$StoriesPageStatePaused implements StoriesPageStatePaused {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int duration)? running,
-    TResult Function()? finished,
-    TResult Function()? paused,
+    TResult? Function()? initial,
+    TResult? Function(int duration)? running,
+    TResult? Function()? finished,
+    TResult? Function()? paused,
   }) {
     return paused?.call();
   }
@@ -582,10 +550,10 @@ class _$StoriesPageStatePaused implements StoriesPageStatePaused {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StoriesPageStateInitial value)? initial,
-    TResult Function(StoriesPageStateRunning value)? running,
-    TResult Function(StoriesPageStateFinished value)? finished,
-    TResult Function(StoriesPageStatePaused value)? paused,
+    TResult? Function(StoriesPageStateInitial value)? initial,
+    TResult? Function(StoriesPageStateRunning value)? running,
+    TResult? Function(StoriesPageStateFinished value)? finished,
+    TResult? Function(StoriesPageStatePaused value)? paused,
   }) {
     return paused?.call(this);
   }

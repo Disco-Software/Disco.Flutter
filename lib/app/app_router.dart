@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/empty_router_widgets.dart';
 import 'package:disco_app/presentation/pages/authentication/login/login_page.dart';
 import 'package:disco_app/presentation/pages/authentication/registration/registration.dart';
 import 'package:disco_app/presentation/pages/authentication/search_registration/search_registration_page.dart';
@@ -9,7 +10,8 @@ import 'package:disco_app/presentation/pages/user/add_post/add_post_page.dart';
 import 'package:disco_app/presentation/pages/user/add_post/record_audio_page.dart';
 import 'package:disco_app/presentation/pages/user/add_post/select_files_page.dart';
 import 'package:disco_app/presentation/pages/user/add_post/widgets/fullscreen_video.dart';
-import 'package:disco_app/presentation/pages/user/chat/chat.dart';
+import 'package:disco_app/presentation/pages/user/chat/chat_page.dart';
+import 'package:disco_app/presentation/pages/user/chat/message_page.dart';
 import 'package:disco_app/presentation/pages/user/home_page.dart';
 import 'package:disco_app/presentation/pages/user/main/main_page.dart';
 import 'package:disco_app/presentation/pages/user/main/pages/stories/story_page.dart';
@@ -28,6 +30,7 @@ import 'package:flutter/material.dart';
     AutoRoute(path: "/registration", page: RegistrationPage),
     AutoRoute(path: '/fullscreen-video', page: FullScreenVideoPage),
     AutoRoute(path: '/follower-account', page: UserProfilePage),
+    AutoRoute(path: '/message', page: MessagePage),
     CustomRoute(
       path: '/search_page',
       page: SearchPage,

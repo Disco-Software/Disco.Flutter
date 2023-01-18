@@ -1,6 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'like_state.dart';
 
@@ -11,43 +12,7 @@ part of 'like_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$LikeStateTearOff {
-  const _$LikeStateTearOff();
-
-  LikeStateInitialSelected initialSelected() {
-    return const LikeStateInitialSelected();
-  }
-
-  LikeStateInitialNotSelected initialNotSelected() {
-    return const LikeStateInitialNotSelected();
-  }
-
-  LikeNotSelectedState notSelected({required int likes}) {
-    return LikeNotSelectedState(
-      likes: likes,
-    );
-  }
-
-  LikeSelectedState selected({required int likes}) {
-    return LikeSelectedState(
-      likes: likes,
-    );
-  }
-
-  LikeStateLoading loading() {
-    return const LikeStateLoading();
-  }
-
-  LikeStateError error() {
-    return const LikeStateError();
-  }
-}
-
-/// @nodoc
-const $LikeState = _$LikeStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$LikeState {
@@ -63,12 +28,12 @@ mixin _$LikeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialSelected,
-    TResult Function()? initialNotSelected,
-    TResult Function(int likes)? notSelected,
-    TResult Function(int likes)? selected,
-    TResult Function()? loading,
-    TResult Function()? error,
+    TResult? Function()? initialSelected,
+    TResult? Function()? initialNotSelected,
+    TResult? Function(int likes)? notSelected,
+    TResult? Function(int likes)? selected,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -95,12 +60,12 @@ mixin _$LikeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LikeStateInitialSelected value)? initialSelected,
-    TResult Function(LikeStateInitialNotSelected value)? initialNotSelected,
-    TResult Function(LikeNotSelectedState value)? notSelected,
-    TResult Function(LikeSelectedState value)? selected,
-    TResult Function(LikeStateLoading value)? loading,
-    TResult Function(LikeStateError value)? error,
+    TResult? Function(LikeStateInitialSelected value)? initialSelected,
+    TResult? Function(LikeStateInitialNotSelected value)? initialNotSelected,
+    TResult? Function(LikeNotSelectedState value)? notSelected,
+    TResult? Function(LikeSelectedState value)? selected,
+    TResult? Function(LikeStateLoading value)? loading,
+    TResult? Function(LikeStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -119,36 +84,34 @@ mixin _$LikeState {
 /// @nodoc
 abstract class $LikeStateCopyWith<$Res> {
   factory $LikeStateCopyWith(LikeState value, $Res Function(LikeState) then) =
-      _$LikeStateCopyWithImpl<$Res>;
+      _$LikeStateCopyWithImpl<$Res, LikeState>;
 }
 
 /// @nodoc
-class _$LikeStateCopyWithImpl<$Res> implements $LikeStateCopyWith<$Res> {
+class _$LikeStateCopyWithImpl<$Res, $Val extends LikeState>
+    implements $LikeStateCopyWith<$Res> {
   _$LikeStateCopyWithImpl(this._value, this._then);
 
-  final LikeState _value;
   // ignore: unused_field
-  final $Res Function(LikeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $LikeStateInitialSelectedCopyWith<$Res> {
-  factory $LikeStateInitialSelectedCopyWith(LikeStateInitialSelected value,
-          $Res Function(LikeStateInitialSelected) then) =
-      _$LikeStateInitialSelectedCopyWithImpl<$Res>;
+abstract class _$$LikeStateInitialSelectedCopyWith<$Res> {
+  factory _$$LikeStateInitialSelectedCopyWith(_$LikeStateInitialSelected value,
+          $Res Function(_$LikeStateInitialSelected) then) =
+      __$$LikeStateInitialSelectedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LikeStateInitialSelectedCopyWithImpl<$Res>
-    extends _$LikeStateCopyWithImpl<$Res>
-    implements $LikeStateInitialSelectedCopyWith<$Res> {
-  _$LikeStateInitialSelectedCopyWithImpl(LikeStateInitialSelected _value,
-      $Res Function(LikeStateInitialSelected) _then)
-      : super(_value, (v) => _then(v as LikeStateInitialSelected));
-
-  @override
-  LikeStateInitialSelected get _value =>
-      super._value as LikeStateInitialSelected;
+class __$$LikeStateInitialSelectedCopyWithImpl<$Res>
+    extends _$LikeStateCopyWithImpl<$Res, _$LikeStateInitialSelected>
+    implements _$$LikeStateInitialSelectedCopyWith<$Res> {
+  __$$LikeStateInitialSelectedCopyWithImpl(_$LikeStateInitialSelected _value,
+      $Res Function(_$LikeStateInitialSelected) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -164,7 +127,8 @@ class _$LikeStateInitialSelected implements LikeStateInitialSelected {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is LikeStateInitialSelected);
+        (other.runtimeType == runtimeType &&
+            other is _$LikeStateInitialSelected);
   }
 
   @override
@@ -186,12 +150,12 @@ class _$LikeStateInitialSelected implements LikeStateInitialSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialSelected,
-    TResult Function()? initialNotSelected,
-    TResult Function(int likes)? notSelected,
-    TResult Function(int likes)? selected,
-    TResult Function()? loading,
-    TResult Function()? error,
+    TResult? Function()? initialSelected,
+    TResult? Function()? initialNotSelected,
+    TResult? Function(int likes)? notSelected,
+    TResult? Function(int likes)? selected,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) {
     return initialSelected?.call();
   }
@@ -230,12 +194,12 @@ class _$LikeStateInitialSelected implements LikeStateInitialSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LikeStateInitialSelected value)? initialSelected,
-    TResult Function(LikeStateInitialNotSelected value)? initialNotSelected,
-    TResult Function(LikeNotSelectedState value)? notSelected,
-    TResult Function(LikeSelectedState value)? selected,
-    TResult Function(LikeStateLoading value)? loading,
-    TResult Function(LikeStateError value)? error,
+    TResult? Function(LikeStateInitialSelected value)? initialSelected,
+    TResult? Function(LikeStateInitialNotSelected value)? initialNotSelected,
+    TResult? Function(LikeNotSelectedState value)? notSelected,
+    TResult? Function(LikeSelectedState value)? selected,
+    TResult? Function(LikeStateLoading value)? loading,
+    TResult? Function(LikeStateError value)? error,
   }) {
     return initialSelected?.call(this);
   }
@@ -263,24 +227,21 @@ abstract class LikeStateInitialSelected implements LikeState {
 }
 
 /// @nodoc
-abstract class $LikeStateInitialNotSelectedCopyWith<$Res> {
-  factory $LikeStateInitialNotSelectedCopyWith(
-          LikeStateInitialNotSelected value,
-          $Res Function(LikeStateInitialNotSelected) then) =
-      _$LikeStateInitialNotSelectedCopyWithImpl<$Res>;
+abstract class _$$LikeStateInitialNotSelectedCopyWith<$Res> {
+  factory _$$LikeStateInitialNotSelectedCopyWith(
+          _$LikeStateInitialNotSelected value,
+          $Res Function(_$LikeStateInitialNotSelected) then) =
+      __$$LikeStateInitialNotSelectedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LikeStateInitialNotSelectedCopyWithImpl<$Res>
-    extends _$LikeStateCopyWithImpl<$Res>
-    implements $LikeStateInitialNotSelectedCopyWith<$Res> {
-  _$LikeStateInitialNotSelectedCopyWithImpl(LikeStateInitialNotSelected _value,
-      $Res Function(LikeStateInitialNotSelected) _then)
-      : super(_value, (v) => _then(v as LikeStateInitialNotSelected));
-
-  @override
-  LikeStateInitialNotSelected get _value =>
-      super._value as LikeStateInitialNotSelected;
+class __$$LikeStateInitialNotSelectedCopyWithImpl<$Res>
+    extends _$LikeStateCopyWithImpl<$Res, _$LikeStateInitialNotSelected>
+    implements _$$LikeStateInitialNotSelectedCopyWith<$Res> {
+  __$$LikeStateInitialNotSelectedCopyWithImpl(
+      _$LikeStateInitialNotSelected _value,
+      $Res Function(_$LikeStateInitialNotSelected) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -297,7 +258,7 @@ class _$LikeStateInitialNotSelected implements LikeStateInitialNotSelected {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LikeStateInitialNotSelected);
+            other is _$LikeStateInitialNotSelected);
   }
 
   @override
@@ -319,12 +280,12 @@ class _$LikeStateInitialNotSelected implements LikeStateInitialNotSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialSelected,
-    TResult Function()? initialNotSelected,
-    TResult Function(int likes)? notSelected,
-    TResult Function(int likes)? selected,
-    TResult Function()? loading,
-    TResult Function()? error,
+    TResult? Function()? initialSelected,
+    TResult? Function()? initialNotSelected,
+    TResult? Function(int likes)? notSelected,
+    TResult? Function(int likes)? selected,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) {
     return initialNotSelected?.call();
   }
@@ -363,12 +324,12 @@ class _$LikeStateInitialNotSelected implements LikeStateInitialNotSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LikeStateInitialSelected value)? initialSelected,
-    TResult Function(LikeStateInitialNotSelected value)? initialNotSelected,
-    TResult Function(LikeNotSelectedState value)? notSelected,
-    TResult Function(LikeSelectedState value)? selected,
-    TResult Function(LikeStateLoading value)? loading,
-    TResult Function(LikeStateError value)? error,
+    TResult? Function(LikeStateInitialSelected value)? initialSelected,
+    TResult? Function(LikeStateInitialNotSelected value)? initialNotSelected,
+    TResult? Function(LikeNotSelectedState value)? notSelected,
+    TResult? Function(LikeSelectedState value)? selected,
+    TResult? Function(LikeStateLoading value)? loading,
+    TResult? Function(LikeStateError value)? error,
   }) {
     return initialNotSelected?.call(this);
   }
@@ -396,30 +357,29 @@ abstract class LikeStateInitialNotSelected implements LikeState {
 }
 
 /// @nodoc
-abstract class $LikeNotSelectedStateCopyWith<$Res> {
-  factory $LikeNotSelectedStateCopyWith(LikeNotSelectedState value,
-          $Res Function(LikeNotSelectedState) then) =
-      _$LikeNotSelectedStateCopyWithImpl<$Res>;
+abstract class _$$LikeNotSelectedStateCopyWith<$Res> {
+  factory _$$LikeNotSelectedStateCopyWith(_$LikeNotSelectedState value,
+          $Res Function(_$LikeNotSelectedState) then) =
+      __$$LikeNotSelectedStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({int likes});
 }
 
 /// @nodoc
-class _$LikeNotSelectedStateCopyWithImpl<$Res>
-    extends _$LikeStateCopyWithImpl<$Res>
-    implements $LikeNotSelectedStateCopyWith<$Res> {
-  _$LikeNotSelectedStateCopyWithImpl(
-      LikeNotSelectedState _value, $Res Function(LikeNotSelectedState) _then)
-      : super(_value, (v) => _then(v as LikeNotSelectedState));
+class __$$LikeNotSelectedStateCopyWithImpl<$Res>
+    extends _$LikeStateCopyWithImpl<$Res, _$LikeNotSelectedState>
+    implements _$$LikeNotSelectedStateCopyWith<$Res> {
+  __$$LikeNotSelectedStateCopyWithImpl(_$LikeNotSelectedState _value,
+      $Res Function(_$LikeNotSelectedState) _then)
+      : super(_value, _then);
 
-  @override
-  LikeNotSelectedState get _value => super._value as LikeNotSelectedState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? likes = freezed,
+    Object? likes = null,
   }) {
-    return _then(LikeNotSelectedState(
-      likes: likes == freezed
+    return _then(_$LikeNotSelectedState(
+      likes: null == likes
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
@@ -444,18 +404,18 @@ class _$LikeNotSelectedState implements LikeNotSelectedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LikeNotSelectedState &&
-            const DeepCollectionEquality().equals(other.likes, likes));
+            other is _$LikeNotSelectedState &&
+            (identical(other.likes, likes) || other.likes == likes));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(likes));
+  int get hashCode => Object.hash(runtimeType, likes);
 
   @JsonKey(ignore: true)
   @override
-  $LikeNotSelectedStateCopyWith<LikeNotSelectedState> get copyWith =>
-      _$LikeNotSelectedStateCopyWithImpl<LikeNotSelectedState>(
+  @pragma('vm:prefer-inline')
+  _$$LikeNotSelectedStateCopyWith<_$LikeNotSelectedState> get copyWith =>
+      __$$LikeNotSelectedStateCopyWithImpl<_$LikeNotSelectedState>(
           this, _$identity);
 
   @override
@@ -474,12 +434,12 @@ class _$LikeNotSelectedState implements LikeNotSelectedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialSelected,
-    TResult Function()? initialNotSelected,
-    TResult Function(int likes)? notSelected,
-    TResult Function(int likes)? selected,
-    TResult Function()? loading,
-    TResult Function()? error,
+    TResult? Function()? initialSelected,
+    TResult? Function()? initialNotSelected,
+    TResult? Function(int likes)? notSelected,
+    TResult? Function(int likes)? selected,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) {
     return notSelected?.call(likes);
   }
@@ -518,12 +478,12 @@ class _$LikeNotSelectedState implements LikeNotSelectedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LikeStateInitialSelected value)? initialSelected,
-    TResult Function(LikeStateInitialNotSelected value)? initialNotSelected,
-    TResult Function(LikeNotSelectedState value)? notSelected,
-    TResult Function(LikeSelectedState value)? selected,
-    TResult Function(LikeStateLoading value)? loading,
-    TResult Function(LikeStateError value)? error,
+    TResult? Function(LikeStateInitialSelected value)? initialSelected,
+    TResult? Function(LikeStateInitialNotSelected value)? initialNotSelected,
+    TResult? Function(LikeNotSelectedState value)? notSelected,
+    TResult? Function(LikeSelectedState value)? selected,
+    TResult? Function(LikeStateLoading value)? loading,
+    TResult? Function(LikeStateError value)? error,
   }) {
     return notSelected?.call(this);
   }
@@ -547,40 +507,39 @@ class _$LikeNotSelectedState implements LikeNotSelectedState {
 }
 
 abstract class LikeNotSelectedState implements LikeState {
-  const factory LikeNotSelectedState({required int likes}) =
+  const factory LikeNotSelectedState({required final int likes}) =
       _$LikeNotSelectedState;
 
   int get likes;
   @JsonKey(ignore: true)
-  $LikeNotSelectedStateCopyWith<LikeNotSelectedState> get copyWith =>
+  _$$LikeNotSelectedStateCopyWith<_$LikeNotSelectedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LikeSelectedStateCopyWith<$Res> {
-  factory $LikeSelectedStateCopyWith(
-          LikeSelectedState value, $Res Function(LikeSelectedState) then) =
-      _$LikeSelectedStateCopyWithImpl<$Res>;
+abstract class _$$LikeSelectedStateCopyWith<$Res> {
+  factory _$$LikeSelectedStateCopyWith(
+          _$LikeSelectedState value, $Res Function(_$LikeSelectedState) then) =
+      __$$LikeSelectedStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({int likes});
 }
 
 /// @nodoc
-class _$LikeSelectedStateCopyWithImpl<$Res>
-    extends _$LikeStateCopyWithImpl<$Res>
-    implements $LikeSelectedStateCopyWith<$Res> {
-  _$LikeSelectedStateCopyWithImpl(
-      LikeSelectedState _value, $Res Function(LikeSelectedState) _then)
-      : super(_value, (v) => _then(v as LikeSelectedState));
+class __$$LikeSelectedStateCopyWithImpl<$Res>
+    extends _$LikeStateCopyWithImpl<$Res, _$LikeSelectedState>
+    implements _$$LikeSelectedStateCopyWith<$Res> {
+  __$$LikeSelectedStateCopyWithImpl(
+      _$LikeSelectedState _value, $Res Function(_$LikeSelectedState) _then)
+      : super(_value, _then);
 
-  @override
-  LikeSelectedState get _value => super._value as LikeSelectedState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? likes = freezed,
+    Object? likes = null,
   }) {
-    return _then(LikeSelectedState(
-      likes: likes == freezed
+    return _then(_$LikeSelectedState(
+      likes: null == likes
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
@@ -605,18 +564,18 @@ class _$LikeSelectedState implements LikeSelectedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LikeSelectedState &&
-            const DeepCollectionEquality().equals(other.likes, likes));
+            other is _$LikeSelectedState &&
+            (identical(other.likes, likes) || other.likes == likes));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(likes));
+  int get hashCode => Object.hash(runtimeType, likes);
 
   @JsonKey(ignore: true)
   @override
-  $LikeSelectedStateCopyWith<LikeSelectedState> get copyWith =>
-      _$LikeSelectedStateCopyWithImpl<LikeSelectedState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$LikeSelectedStateCopyWith<_$LikeSelectedState> get copyWith =>
+      __$$LikeSelectedStateCopyWithImpl<_$LikeSelectedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -634,12 +593,12 @@ class _$LikeSelectedState implements LikeSelectedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialSelected,
-    TResult Function()? initialNotSelected,
-    TResult Function(int likes)? notSelected,
-    TResult Function(int likes)? selected,
-    TResult Function()? loading,
-    TResult Function()? error,
+    TResult? Function()? initialSelected,
+    TResult? Function()? initialNotSelected,
+    TResult? Function(int likes)? notSelected,
+    TResult? Function(int likes)? selected,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) {
     return selected?.call(likes);
   }
@@ -678,12 +637,12 @@ class _$LikeSelectedState implements LikeSelectedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LikeStateInitialSelected value)? initialSelected,
-    TResult Function(LikeStateInitialNotSelected value)? initialNotSelected,
-    TResult Function(LikeNotSelectedState value)? notSelected,
-    TResult Function(LikeSelectedState value)? selected,
-    TResult Function(LikeStateLoading value)? loading,
-    TResult Function(LikeStateError value)? error,
+    TResult? Function(LikeStateInitialSelected value)? initialSelected,
+    TResult? Function(LikeStateInitialNotSelected value)? initialNotSelected,
+    TResult? Function(LikeNotSelectedState value)? notSelected,
+    TResult? Function(LikeSelectedState value)? selected,
+    TResult? Function(LikeStateLoading value)? loading,
+    TResult? Function(LikeStateError value)? error,
   }) {
     return selected?.call(this);
   }
@@ -707,30 +666,29 @@ class _$LikeSelectedState implements LikeSelectedState {
 }
 
 abstract class LikeSelectedState implements LikeState {
-  const factory LikeSelectedState({required int likes}) = _$LikeSelectedState;
+  const factory LikeSelectedState({required final int likes}) =
+      _$LikeSelectedState;
 
   int get likes;
   @JsonKey(ignore: true)
-  $LikeSelectedStateCopyWith<LikeSelectedState> get copyWith =>
+  _$$LikeSelectedStateCopyWith<_$LikeSelectedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LikeStateLoadingCopyWith<$Res> {
-  factory $LikeStateLoadingCopyWith(
-          LikeStateLoading value, $Res Function(LikeStateLoading) then) =
-      _$LikeStateLoadingCopyWithImpl<$Res>;
+abstract class _$$LikeStateLoadingCopyWith<$Res> {
+  factory _$$LikeStateLoadingCopyWith(
+          _$LikeStateLoading value, $Res Function(_$LikeStateLoading) then) =
+      __$$LikeStateLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LikeStateLoadingCopyWithImpl<$Res> extends _$LikeStateCopyWithImpl<$Res>
-    implements $LikeStateLoadingCopyWith<$Res> {
-  _$LikeStateLoadingCopyWithImpl(
-      LikeStateLoading _value, $Res Function(LikeStateLoading) _then)
-      : super(_value, (v) => _then(v as LikeStateLoading));
-
-  @override
-  LikeStateLoading get _value => super._value as LikeStateLoading;
+class __$$LikeStateLoadingCopyWithImpl<$Res>
+    extends _$LikeStateCopyWithImpl<$Res, _$LikeStateLoading>
+    implements _$$LikeStateLoadingCopyWith<$Res> {
+  __$$LikeStateLoadingCopyWithImpl(
+      _$LikeStateLoading _value, $Res Function(_$LikeStateLoading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -746,7 +704,7 @@ class _$LikeStateLoading implements LikeStateLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is LikeStateLoading);
+        (other.runtimeType == runtimeType && other is _$LikeStateLoading);
   }
 
   @override
@@ -768,12 +726,12 @@ class _$LikeStateLoading implements LikeStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialSelected,
-    TResult Function()? initialNotSelected,
-    TResult Function(int likes)? notSelected,
-    TResult Function(int likes)? selected,
-    TResult Function()? loading,
-    TResult Function()? error,
+    TResult? Function()? initialSelected,
+    TResult? Function()? initialNotSelected,
+    TResult? Function(int likes)? notSelected,
+    TResult? Function(int likes)? selected,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) {
     return loading?.call();
   }
@@ -812,12 +770,12 @@ class _$LikeStateLoading implements LikeStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LikeStateInitialSelected value)? initialSelected,
-    TResult Function(LikeStateInitialNotSelected value)? initialNotSelected,
-    TResult Function(LikeNotSelectedState value)? notSelected,
-    TResult Function(LikeSelectedState value)? selected,
-    TResult Function(LikeStateLoading value)? loading,
-    TResult Function(LikeStateError value)? error,
+    TResult? Function(LikeStateInitialSelected value)? initialSelected,
+    TResult? Function(LikeStateInitialNotSelected value)? initialNotSelected,
+    TResult? Function(LikeNotSelectedState value)? notSelected,
+    TResult? Function(LikeSelectedState value)? selected,
+    TResult? Function(LikeStateLoading value)? loading,
+    TResult? Function(LikeStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -845,21 +803,19 @@ abstract class LikeStateLoading implements LikeState {
 }
 
 /// @nodoc
-abstract class $LikeStateErrorCopyWith<$Res> {
-  factory $LikeStateErrorCopyWith(
-          LikeStateError value, $Res Function(LikeStateError) then) =
-      _$LikeStateErrorCopyWithImpl<$Res>;
+abstract class _$$LikeStateErrorCopyWith<$Res> {
+  factory _$$LikeStateErrorCopyWith(
+          _$LikeStateError value, $Res Function(_$LikeStateError) then) =
+      __$$LikeStateErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LikeStateErrorCopyWithImpl<$Res> extends _$LikeStateCopyWithImpl<$Res>
-    implements $LikeStateErrorCopyWith<$Res> {
-  _$LikeStateErrorCopyWithImpl(
-      LikeStateError _value, $Res Function(LikeStateError) _then)
-      : super(_value, (v) => _then(v as LikeStateError));
-
-  @override
-  LikeStateError get _value => super._value as LikeStateError;
+class __$$LikeStateErrorCopyWithImpl<$Res>
+    extends _$LikeStateCopyWithImpl<$Res, _$LikeStateError>
+    implements _$$LikeStateErrorCopyWith<$Res> {
+  __$$LikeStateErrorCopyWithImpl(
+      _$LikeStateError _value, $Res Function(_$LikeStateError) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -875,7 +831,7 @@ class _$LikeStateError implements LikeStateError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is LikeStateError);
+        (other.runtimeType == runtimeType && other is _$LikeStateError);
   }
 
   @override
@@ -897,12 +853,12 @@ class _$LikeStateError implements LikeStateError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialSelected,
-    TResult Function()? initialNotSelected,
-    TResult Function(int likes)? notSelected,
-    TResult Function(int likes)? selected,
-    TResult Function()? loading,
-    TResult Function()? error,
+    TResult? Function()? initialSelected,
+    TResult? Function()? initialNotSelected,
+    TResult? Function(int likes)? notSelected,
+    TResult? Function(int likes)? selected,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) {
     return error?.call();
   }
@@ -941,12 +897,12 @@ class _$LikeStateError implements LikeStateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LikeStateInitialSelected value)? initialSelected,
-    TResult Function(LikeStateInitialNotSelected value)? initialNotSelected,
-    TResult Function(LikeNotSelectedState value)? notSelected,
-    TResult Function(LikeSelectedState value)? selected,
-    TResult Function(LikeStateLoading value)? loading,
-    TResult Function(LikeStateError value)? error,
+    TResult? Function(LikeStateInitialSelected value)? initialSelected,
+    TResult? Function(LikeStateInitialNotSelected value)? initialNotSelected,
+    TResult? Function(LikeNotSelectedState value)? notSelected,
+    TResult? Function(LikeSelectedState value)? selected,
+    TResult? Function(LikeStateLoading value)? loading,
+    TResult? Function(LikeStateError value)? error,
   }) {
     return error?.call(this);
   }
