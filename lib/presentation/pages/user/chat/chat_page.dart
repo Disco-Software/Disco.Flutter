@@ -1,16 +1,46 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:disco_app/app/app_router.gr.dart';
+import 'package:disco_app/injection.dart';
 import 'package:disco_app/presentation/common_widgets/unicorn_image.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:disco_app/presentation/pages/user/chat/chat_cubit/chat_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../res/colors.dart';
+import 'chat_cubit/chat_cubit.dart';
 
-class ChatPage extends StatelessWidget {
+class ChatPage extends StatefulWidget implements AutoRouteWrapper {
   const ChatPage({Key? key}) : super(key: key);
+
+  @override
+  State<ChatPage> createState() => _ChatPageState();
+
+  @override
+  Widget wrappedRoute(context) {
+    return BlocProvider<ChatCubit>(
+      create: (context) => getIt()..loadGroups(1, 1),
+      child: this,
+    );
+  }
+}
+
+class _ChatPageState extends State<ChatPage> {
+  final serverUrl =  '' + "/Chat";
+  var chatMessages = [];
+   var connectionIsOpen = false;
+   var userName = "Fred";
+
+
+
+
+  @override
+  void didChangeDependencies() {
+    context.read<ChatCubit>().loadGroups(1, 1);
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,18 +97,34 @@ class ChatPage extends StatelessWidget {
             ),
           ),
         ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) => Padding(
-              padding: const EdgeInsets.only(bottom: 30),
-              child: GestureDetector(
-                onTap: () => context.router.push(const MessageRoute()),
-                child: const _MessageCard(
-                    userName: 'Lol', message: 'Say hi to ..,', date: 'Yesterday'),
+        BlocBuilder<ChatCubit, ChatState>(
+          builder: (context, state) {
+            return state.maybeMap(
+              orElse: () => const SliverPadding(padding: EdgeInsets.zero),
+              loading: (_) => const SliverToBoxAdapter(
+                child: CircularProgressIndicator.adaptive(),
               ),
-            ),
-            childCount: 20,
-          ),
+              loaded: (state) => SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => Padding(
+                    padding: const EdgeInsets.only(bottom: 30),
+                    child: GestureDetector(
+                      onTap: () => context.router.push(const MessageRoute()),
+                      child: _MessageCard(
+                        userName: state.groups[index].name ?? '',
+                        message: state.groups[index].messages?.last.description ?? '',
+                        date: '${state.groups[index].messages?.last.createdDate ?? DateTime.now()}',
+                      ),
+                    ),
+                  ),
+                  childCount: 20,
+                ),
+              ),
+              error: (_) => const SliverToBoxAdapter(
+                child: Text('Error with loading chat :('),
+              ),
+            );
+          },
         ),
       ]),
     );

@@ -5,6 +5,7 @@ import 'package:disco_app/app/app_router.gr.dart';
 import 'package:disco_app/data/local/local_storage.dart';
 import 'package:disco_app/data/network/network_models/friend_model.dart';
 import 'package:disco_app/presentation/common_widgets/post/post.dart';
+import 'package:disco_app/presentation/pages/user/chat/chat_cubit/chat_cubit.dart';
 import 'package:disco_app/presentation/pages/user/profile/bloc/profile_cubit.dart';
 import 'package:disco_app/presentation/pages/user/profile/bloc/profile_state.dart';
 import 'package:disco_app/presentation/pages/user/profile/bloc/subscribe_cubit.dart';
@@ -31,6 +32,10 @@ class UserProfilePage extends StatefulWidget implements AutoRouteWrapper {
     return MultiBlocProvider(
       providers: [
         BlocProvider<SubscribeCubit>(
+          create: (context) => getIt(),
+          child: this,
+        ),
+        BlocProvider<ChatCubit>(
           create: (context) => getIt(),
           child: this,
         ),
@@ -244,7 +249,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                     width: 10,
                   ),
                   OutlinedButton.icon(
-                    onPressed: () => context.read<SubscribeCubit>().unsubscribe(_id),
+                    onPressed: () => context.read<ChatCubit>().createGroup(_userId),
                     style: ButtonStyle(
                         padding:
                             MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 8))),

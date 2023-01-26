@@ -93,10 +93,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 alignment: Alignment.bottomCenter,
                 children: [
                   AnimatedBuilder(
+                    builder: (ctx, child) => Align(
+                      alignment: Alignment.topCenter,
+                      child: child,
+                      heightFactor: animationController.value,
+                    ),
+                    animation: animationController,
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 10.0),
-                      height: MediaQuery.of(context).padding.bottom > 0 ? 200.0 : 175,
-                      decoration: const BoxDecoration(
+                      height: MediaQuery.of(context).padding.bottom > 0 ? 200.0 : 175, decoration: const BoxDecoration(
                         color: Color(0xFF543388),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(25.0),
@@ -261,12 +266,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                         ),
                       ),
                     ),
-                    builder: (ctx, child) => Align(
-                      alignment: Alignment.topCenter,
-                      child: child,
-                      heightFactor: animationController.value,
-                    ),
-                    animation: animationController,
                   ),
                   Container(
                     decoration: const BoxDecoration(
