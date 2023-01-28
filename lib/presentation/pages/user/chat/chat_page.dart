@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:signalr_core/signalr_core.dart';
 
 import '../../../../res/colors.dart';
 import 'chat_cubit/chat_cubit.dart';
@@ -28,17 +29,18 @@ class ChatPage extends StatefulWidget implements AutoRouteWrapper {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  final serverUrl =  '' + "/Chat";
+  final serverUrl = '' + "/Chat";
   var chatMessages = [];
-   var connectionIsOpen = false;
-   var userName = "Fred";
-
-
-
+  var connectionIsOpen = false;
+  var userName = "Fred";
+  late HubConnection connection;
+  final _token =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsIm5iZiI6MTY3NDkwMzY4NywiZXhwIjoxNjc0OTc1Njg3LCJpc3MiOiJkaXNjby1hcGkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L0Rpc2NvLkFwaSJ9.mfddx5P5cFue3HOlSnPHrsuIUzM1OkmEuvlePXjDNNA';
 
   @override
-  void didChangeDependencies() {
-    context.read<ChatCubit>().loadGroups(1, 1);
+  Future<void> didChangeDependencies() async {
+    // context.read<ChatCubit>().loadGroups(1, 1);
+
     super.didChangeDependencies();
   }
 
@@ -62,8 +64,45 @@ class _ChatPageState extends State<ChatPage> {
           actions: [
             IconButton(
                 padding: const EdgeInsets.only(right: 32),
-                onPressed: () {
-                  context.router.push(const SearchRoute());
+                onPressed: () async {
+                  try {
+                    connection = HubConnectionBuilder()
+                        .withUrl(
+                            'https://devdiscoapi.azurewebsites.net/hub/chat',
+                            HttpConnectionOptions(
+                              logging: (level, message) => print("CONECCTIONOPTIONS:$level: $message"),
+                              accessTokenFactory: () async => await Future.value(_token),
+                              logMessageContent: true,
+
+                            )).withAutomaticReconnect()
+                        .build();
+                    print('lol888');
+                    connection.on('sendAsync', (message) {
+                      print('lol1');
+                      print(message.toString());
+                    });
+                    connection.onreconnecting((exception) {
+                      print('ONRECCONECTING: $exception');
+                    });
+                    connection.onreconnected((connectionId) {
+                      print('ONRECCONECTINED: $connectionId');
+                    });
+                    print('lol8882!!!!');
+                    await connection.start();
+                    print('lol9');
+
+                    final result = await connection.invoke('SendAsync', args: [6, 'Say hi']);
+                    print('lol99----- $result');
+                    // await connection.invoke('join', args: ['12']);
+
+
+
+                    print('lol1000000-----');
+                  } catch (err) {
+                    print('ERRRRRLOL1 $err');
+                  }
+
+                  // context.router.push(const SearchRoute());
                 },
                 icon: SvgPicture.asset(
                   "assets/ic_search.svg",
