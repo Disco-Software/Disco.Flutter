@@ -14,9 +14,9 @@ import 'login_state.dart';
 
 @injectable
 class LoginBloc extends Bloc<LoginPageEvent, LoginPageState> {
-  UserRepository userRepository;
-  SecureStorageRepository secureStorageRepository;
-  Dio dio;
+  final UserRepository userRepository;
+  final SecureStorageRepository secureStorageRepository;
+  final Dio dio;
 
   LoginBloc({
     required this.userRepository,
@@ -47,6 +47,7 @@ class LoginBloc extends Bloc<LoginPageEvent, LoginPageState> {
             currentFollowers: authResult?.user?.account?.status?.followersCount,
             userTarget: authResult?.user?.account?.status?.userTarget,
             lastStatus: authResult?.user?.account?.status?.lastStatus,
+            accountId: authResult?.user?.account?.id ?? 0,
           ),
         );
         dio.options.headers.addAll({'Authorization': 'Bearer: ${authResult?.accesToken}'});

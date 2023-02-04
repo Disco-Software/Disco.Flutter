@@ -110,8 +110,10 @@ _i1.GetIt $initGetIt(
       _i23.SearchItemCubit(searchRepository: gh<_i13.SearchRepository>()));
   gh.factory<_i24.UserRepository>(
       () => _i24.UserRepository(authApi: gh<_i18.AuthApi>()));
-  gh.factory<_i25.ChatCubit>(
-      () => _i25.ChatCubit(chatRepository: gh<_i20.ChatRepository>()));
+  gh.factory<_i25.ChatCubit>(() => _i25.ChatCubit(
+        chatRepository: gh<_i20.ChatRepository>(),
+        secureStorageRepository: gh<_i5.SecureStorageRepository>(),
+      ));
   gh.factory<_i26.LoginBloc>(() => _i26.LoginBloc(
         userRepository: gh<_i24.UserRepository>(),
         secureStorageRepository: gh<_i5.SecureStorageRepository>(),

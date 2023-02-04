@@ -18,6 +18,7 @@ class ChatGroup {
   });
 
   ChatGroup.fromJson(Map<String, dynamic> json) {
+
     try {
       name = json['name'];
       if (json['accounts'] != null) {
@@ -38,6 +39,7 @@ class ChatGroup {
           accountGroups!.add(AccountGroups.fromJson(v));
         });
       }
+
     } catch (err) {
       log("$err", name: 'Account parsing error');
     }
@@ -56,5 +58,10 @@ class ChatGroup {
       data['accountGroups'] = accountGroups!.map((v) => v.toJson()).toList();
     }
     return data;
+  }
+
+  @override
+  String toString() {
+    return 'ChatGroup{name: $name, accounts: $accounts, messages: $messages, accountGroups: $accountGroups}';
   }
 }

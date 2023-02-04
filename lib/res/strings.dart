@@ -8,6 +8,7 @@ class Strings {
   static const String userId = "userId";
   static const String moto = "moto";
   static const String lastStatus = "lastStatus";
+  static const String accountId = "accountId";
   static const String defaultSongImage = "assets/default_audio_image.png";
   static const String defaultStoryImage = "assets/ic_photo.png";
   static const String defaultSongName = "Name";

@@ -9,7 +9,7 @@ class ChatState with _$ChatState {
 
   const factory ChatState.loading() = ChatStateLoading;
 
-  const factory ChatState.loaded({required List<ChatGroup> groups}) = ChatStateLoaded;
+  const factory ChatState.loaded({required List<ChatGroup> groups, required int currentUserId}) = ChatStateLoaded;
 
 
   const factory ChatState.error() = ChatStateError;

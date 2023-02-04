@@ -32,6 +32,7 @@ extension Secure on SecureStorageRepository {
     if (storedUserModel?.lastStatus != null) {
       await write(key: Strings.lastStatus, value: storedUserModel?.lastStatus ?? '');
     }
+    await write(key: Strings.accountId, value: storedUserModel?.accountId.toString() ?? '');
     return;
   }
 }

@@ -44,6 +44,7 @@ class RegistrationBloc extends Bloc<RegistrationPageEvent, RegistrationPageState
           currentFollowers: response?.user?.account?.status?.followersCount,
           userTarget: response?.user?.account?.status?.userTarget,
           lastStatus: response?.user?.account?.status?.lastStatus,
+          accountId: response?.user?.account?.id ?? 0,
         ),
       );
       dio.options.headers.addAll({'Authorization': 'Bearer: ${response?.accesToken}'});

@@ -178,7 +178,7 @@ class AppRouter extends _i20.RootStackRouter {
     ChatRoute.name: (routeData) {
       return _i20.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i15.ChatPage(),
+        child: _i20.WrappedRoute(child: const _i15.ChatPage()),
       );
     },
     ProfileRoute.name: (routeData) {

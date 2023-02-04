@@ -20,7 +20,7 @@ mixin _$ChatState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChatGroup> groups) loaded,
+    required TResult Function(List<ChatGroup> groups, int currentUserId) loaded,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$ChatState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ChatGroup> groups)? loaded,
+    TResult? Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$ChatState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChatGroup> groups)? loaded,
+    TResult Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -125,7 +125,7 @@ class _$ChatStateInitial implements ChatStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChatGroup> groups) loaded,
+    required TResult Function(List<ChatGroup> groups, int currentUserId) loaded,
     required TResult Function() error,
   }) {
     return initial();
@@ -136,7 +136,7 @@ class _$ChatStateInitial implements ChatStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ChatGroup> groups)? loaded,
+    TResult? Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult? Function()? error,
   }) {
     return initial?.call();
@@ -147,7 +147,7 @@ class _$ChatStateInitial implements ChatStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChatGroup> groups)? loaded,
+    TResult Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -239,7 +239,7 @@ class _$ChatStateLoading implements ChatStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChatGroup> groups) loaded,
+    required TResult Function(List<ChatGroup> groups, int currentUserId) loaded,
     required TResult Function() error,
   }) {
     return loading();
@@ -250,7 +250,7 @@ class _$ChatStateLoading implements ChatStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ChatGroup> groups)? loaded,
+    TResult? Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult? Function()? error,
   }) {
     return loading?.call();
@@ -261,7 +261,7 @@ class _$ChatStateLoading implements ChatStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChatGroup> groups)? loaded,
+    TResult Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -319,7 +319,7 @@ abstract class _$$ChatStateLoadedCopyWith<$Res> {
           _$ChatStateLoaded value, $Res Function(_$ChatStateLoaded) then) =
       __$$ChatStateLoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ChatGroup> groups});
+  $Res call({List<ChatGroup> groups, int currentUserId});
 }
 
 /// @nodoc
@@ -334,12 +334,17 @@ class __$$ChatStateLoadedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? groups = null,
+    Object? currentUserId = null,
   }) {
     return _then(_$ChatStateLoaded(
       groups: null == groups
           ? _value._groups
           : groups // ignore: cast_nullable_to_non_nullable
               as List<ChatGroup>,
+      currentUserId: null == currentUserId
+          ? _value.currentUserId
+          : currentUserId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -347,7 +352,8 @@ class __$$ChatStateLoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ChatStateLoaded implements ChatStateLoaded {
-  const _$ChatStateLoaded({required final List<ChatGroup> groups})
+  const _$ChatStateLoaded(
+      {required final List<ChatGroup> groups, required this.currentUserId})
       : _groups = groups;
 
   final List<ChatGroup> _groups;
@@ -359,8 +365,11 @@ class _$ChatStateLoaded implements ChatStateLoaded {
   }
 
   @override
+  final int currentUserId;
+
+  @override
   String toString() {
-    return 'ChatState.loaded(groups: $groups)';
+    return 'ChatState.loaded(groups: $groups, currentUserId: $currentUserId)';
   }
 
   @override
@@ -368,12 +377,14 @@ class _$ChatStateLoaded implements ChatStateLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChatStateLoaded &&
-            const DeepCollectionEquality().equals(other._groups, _groups));
+            const DeepCollectionEquality().equals(other._groups, _groups) &&
+            (identical(other.currentUserId, currentUserId) ||
+                other.currentUserId == currentUserId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_groups));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_groups), currentUserId);
 
   @JsonKey(ignore: true)
   @override
@@ -386,10 +397,10 @@ class _$ChatStateLoaded implements ChatStateLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChatGroup> groups) loaded,
+    required TResult Function(List<ChatGroup> groups, int currentUserId) loaded,
     required TResult Function() error,
   }) {
-    return loaded(groups);
+    return loaded(groups, currentUserId);
   }
 
   @override
@@ -397,10 +408,10 @@ class _$ChatStateLoaded implements ChatStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ChatGroup> groups)? loaded,
+    TResult? Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult? Function()? error,
   }) {
-    return loaded?.call(groups);
+    return loaded?.call(groups, currentUserId);
   }
 
   @override
@@ -408,12 +419,12 @@ class _$ChatStateLoaded implements ChatStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChatGroup> groups)? loaded,
+    TResult Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(groups);
+      return loaded(groups, currentUserId);
     }
     return orElse();
   }
@@ -457,10 +468,12 @@ class _$ChatStateLoaded implements ChatStateLoaded {
 }
 
 abstract class ChatStateLoaded implements ChatState {
-  const factory ChatStateLoaded({required final List<ChatGroup> groups}) =
-      _$ChatStateLoaded;
+  const factory ChatStateLoaded(
+      {required final List<ChatGroup> groups,
+      required final int currentUserId}) = _$ChatStateLoaded;
 
   List<ChatGroup> get groups;
+  int get currentUserId;
   @JsonKey(ignore: true)
   _$$ChatStateLoadedCopyWith<_$ChatStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -506,7 +519,7 @@ class _$ChatStateError implements ChatStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ChatGroup> groups) loaded,
+    required TResult Function(List<ChatGroup> groups, int currentUserId) loaded,
     required TResult Function() error,
   }) {
     return error();
@@ -517,7 +530,7 @@ class _$ChatStateError implements ChatStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ChatGroup> groups)? loaded,
+    TResult? Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult? Function()? error,
   }) {
     return error?.call();
@@ -528,7 +541,7 @@ class _$ChatStateError implements ChatStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ChatGroup> groups)? loaded,
+    TResult Function(List<ChatGroup> groups, int currentUserId)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {

@@ -8,6 +8,7 @@ class StoredUserModel {
   final String? lastStatus;
   final int? currentFollowers;
   final int? userTarget;
+  final int accountId;
 
   StoredUserModel({
     required this.lastStatus,
@@ -19,10 +20,11 @@ class StoredUserModel {
     this.moto,
     this.currentFollowers,
     this.userTarget,
+   required  this.accountId,
   });
 
   @override
   String toString() {
-    return 'StoredUserModel{token: $token, refreshToken: $refreshToken, userPhoto: $userPhoto, userId: $userId, userName: $userName, moto: $moto, lastStatus: $lastStatus, currentFollowers: $currentFollowers, userTarget: $userTarget}';
+    return 'StoredUserModel{token: $token, refreshToken: $refreshToken, userPhoto: $userPhoto, userId: $userId, userName: $userName, moto: $moto, lastStatus: $lastStatus, currentFollowers: $currentFollowers, userTarget: $userTarget}, accountID " $accountId';
   }
 }

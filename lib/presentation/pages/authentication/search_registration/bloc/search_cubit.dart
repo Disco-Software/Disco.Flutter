@@ -80,6 +80,7 @@ class SearchCubit extends Cubit<SearchPageState> {
             currentFollowers: authResult?.user?.account?.status?.followersCount,
             userTarget: authResult?.user?.account?.status?.userTarget,
             lastStatus: authResult?.user?.account?.status?.lastStatus,
+            accountId: authResult?.user?.account?.id ?? 0,
           ),
         );
   }

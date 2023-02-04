@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:disco_app/app/app_router.gr.dart';
@@ -70,11 +73,12 @@ class _ChatPageState extends State<ChatPage> {
                         .withUrl(
                             'https://devdiscoapi.azurewebsites.net/hub/chat',
                             HttpConnectionOptions(
-                              logging: (level, message) => print("CONECCTIONOPTIONS:$level: $message"),
+                              logging: (level, message) =>
+                                  print("CONECCTIONOPTIONS:$level: $message"),
                               accessTokenFactory: () async => await Future.value(_token),
                               logMessageContent: true,
-
-                            )).withAutomaticReconnect()
+                            ))
+                        .withAutomaticReconnect()
                         .build();
                     print('lol888');
                     connection.on('sendAsync', (message) {
@@ -94,8 +98,6 @@ class _ChatPageState extends State<ChatPage> {
                     final result = await connection.invoke('SendAsync', args: [6, 'Say hi']);
                     print('lol99----- $result');
                     // await connection.invoke('join', args: ['12']);
-
-
 
                     print('lol1000000-----');
                   } catch (err) {
@@ -150,13 +152,14 @@ class _ChatPageState extends State<ChatPage> {
                     child: GestureDetector(
                       onTap: () => context.router.push(const MessageRoute()),
                       child: _MessageCard(
-                        userName: state.groups[index].name ?? '',
+                        userName: _getUsername(state, index, state.currentUserId),
                         message: state.groups[index].messages?.last.description ?? '',
-                        date: '${state.groups[index].messages?.last.createdDate ?? DateTime.now()}',
+                        date:
+                            '${state.groups[index].messages?.last.createdDate ?? 'undefined date'}',
                       ),
                     ),
                   ),
-                  childCount: 20,
+                  childCount: state.groups.length,
                 ),
               ),
               error: (_) => const SliverToBoxAdapter(
@@ -167,6 +170,16 @@ class _ChatPageState extends State<ChatPage> {
         ),
       ]),
     );
+  }
+
+  String _getUsername(ChatStateLoaded state, int index, int currentUserId) {
+    log(' $index ---> $currentUserId', name: 'getUsername method');
+    return state.groups[index].accountGroups
+            ?.firstWhere((element) => element.accountId != currentUserId)
+            .account
+            ?.user
+            ?.userName ??
+        '';
   }
 }
 

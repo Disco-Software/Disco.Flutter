@@ -36,6 +36,7 @@ class SecureStorageRepository {
       final currentFollowers = await secureStorage.read(key: Strings.currentFollowers) ?? '0';
       final moto = await secureStorage.read(key: Strings.moto) ?? '';
       final lastStatus = await secureStorage.read(key: Strings.lastStatus) ?? '';
+      final accountId = await secureStorage.read(key: Strings.accountId) ?? '';
 
       final model = StoredUserModel(
         userTarget: int.parse(goalFollowers),
@@ -47,6 +48,7 @@ class SecureStorageRepository {
         currentFollowers: int.parse(currentFollowers),
         moto: moto,
         lastStatus: lastStatus,
+        accountId: int.parse(accountId),
       );
 
       log(model.toString(), name: 'Stored information for user');
