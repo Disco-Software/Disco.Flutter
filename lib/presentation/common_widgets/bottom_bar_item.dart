@@ -11,6 +11,7 @@ class BottomBarItem extends StatelessWidget {
 
   final int id;
   final String imagePath;
+
   final String label;
   @override
   Widget build(BuildContext context) {

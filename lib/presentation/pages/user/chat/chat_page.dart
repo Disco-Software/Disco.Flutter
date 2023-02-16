@@ -80,9 +80,9 @@ class _ChatPageState extends State<ChatPage> {
                             ))
                         .withAutomaticReconnect()
                         .build();
-                    print('lol888');
+
                     connection.on('sendAsync', (message) {
-                      print('lol1');
+
                       print(message.toString());
                     });
                     connection.onreconnecting((exception) {
@@ -91,9 +91,9 @@ class _ChatPageState extends State<ChatPage> {
                     connection.onreconnected((connectionId) {
                       print('ONRECCONECTINED: $connectionId');
                     });
-                    print('lol8882!!!!');
+                    print('beforeConnect!!!!');
                     await connection.start();
-                    print('lol9');
+                    print('afterConnect!!!!');
 
                     final result = await connection.invoke('SendAsync', args: [6, 'Say hi']);
                     print('lol99----- $result');
