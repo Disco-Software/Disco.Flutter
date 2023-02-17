@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.2.0"
+  ansicolor:
+    dependency: transitive
+    description:
+      name: ansicolor
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   archive:
     dependency: transitive
     description:
@@ -1059,13 +1066,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-  signalr_core:
+  signalr_pure:
     dependency: "direct main"
     description:
-      name: signalr_core
+      name: signalr_pure
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1106,13 +1113,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0+2"
-  sse_client:
-    dependency: transitive
-    description:
-      name: sse_client
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.0"
   stack_trace:
     dependency: transitive
     description:

@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:signalr_core/signalr_core.dart';
+import 'package:signalr_pure/signalr_pure.dart';
 
 import '../../../../res/colors.dart';
 import 'chat_cubit/chat_cubit.dart';
@@ -69,37 +69,7 @@ class _ChatPageState extends State<ChatPage> {
                 padding: const EdgeInsets.only(right: 32),
                 onPressed: () async {
                   try {
-                    connection = HubConnectionBuilder()
-                        .withUrl(
-                            'https://devdiscoapi.azurewebsites.net/hub/chat',
-                            HttpConnectionOptions(
-                              logging: (level, message) =>
-                                  print("CONECCTIONOPTIONS:$level: $message"),
-                              accessTokenFactory: () async => await Future.value(_token),
-                              logMessageContent: true,
-                            ))
-                        .withAutomaticReconnect()
-                        .build();
-                    print('lol888');
-                    connection.on('sendAsync', (message) {
-                      print('lol1');
-                      print(message.toString());
-                    });
-                    connection.onreconnecting((exception) {
-                      print('ONRECCONECTING: $exception');
-                    });
-                    connection.onreconnected((connectionId) {
-                      print('ONRECCONECTINED: $connectionId');
-                    });
-                    print('lol8882!!!!');
-                    await connection.start();
-                    print('lol9');
-
-                    final result = await connection.invoke('SendAsync', args: [6, 'Say hi']);
-                    print('lol99----- $result');
-                    // await connection.invoke('join', args: ['12']);
-
-                    print('lol1000000-----');
+                    signal();
                   } catch (err) {
                     print('ERRRRRLOL1 $err');
                   }
@@ -152,8 +122,11 @@ class _ChatPageState extends State<ChatPage> {
                     child: GestureDetector(
                       onTap: () => context.router.push(const MessageRoute()),
                       child: _MessageCard(
-                        userName: _getUsername(state, index, state.currentUserId),
-                        message: state.groups[index].messages?.last.description ?? '',
+                        userName:
+                            _getUsername(state, index, state.currentUserId),
+                        message:
+                            state.groups[index].messages?.last.description ??
+                                '',
                         date:
                             '${state.groups[index].messages?.last.createdDate ?? 'undefined date'}',
                       ),
@@ -183,6 +156,24 @@ class _ChatPageState extends State<ChatPage> {
   }
 }
 
+void signal() async {
+  //ф-ия для подключения к хабу SignalR. Для отправки пуш уведомления об оплате
+
+  final options = HttpConnectionOptions();
+  options.headers = {'CashDeskId': '1234512598'};
+
+  final builder = HubConnectionBuilder()
+    ..url = 'https://devdiscoapi.azurewebsites.net/hub/chat'
+    ..logLevel = LogLevel.information
+    ..httpConnectionOptions = options
+    ..reconnect = true;
+  final connection = builder.build();
+  connection.on('sendAsync', (newList) => print(newList));
+  await connection.startAsync();
+
+  await connection.invokeAsync('SendAsync', [6, 'Say hi']);
+}
+
 class _MessageCard extends StatelessWidget {
   final String? photo;
   final String userName;
@@ -210,7 +201,10 @@ class _MessageCard extends StatelessWidget {
             ),
             boxShadow: [
               BoxShadow(
-                  color: Color(0xFFB21887D7), offset: Offset(2, 3), spreadRadius: 7, blurRadius: 7)
+                  color: Color(0xFFB21887D7),
+                  offset: Offset(2, 3),
+                  spreadRadius: 7,
+                  blurRadius: 7)
             ]),
         child: photo != null
             ? ClipRRect(
@@ -220,7 +214,8 @@ class _MessageCard extends StatelessWidget {
                 ),
                 child: CachedNetworkImage(
                   imageUrl: photo ?? '',
-                  placeholder: (context, url) => Image.asset('assets/ic_photo.png'),
+                  placeholder: (context, url) =>
+                      Image.asset('assets/ic_photo.png'),
                   fit: BoxFit.fill,
                 ),
               )
