@@ -157,10 +157,13 @@ class _ChatPageState extends State<ChatPage> {
 }
 
 void signal() async {
+  const token =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsIm5iZiI6MTY3NjY3MDQ2MywiZXhwIjoxNjc2NzQyNDYzLCJpc3MiOiJkaXNjby1hcGkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L0Rpc2NvLkFwaSJ9.KTXOOpHCAM4ctpCPRu1VrcLjwr_2lr4pLTDZcEcmfQY';
   //ф-ия для подключения к хабу SignalR. Для отправки пуш уведомления об оплате
 
   final options = HttpConnectionOptions();
-  options.headers = {'CashDeskId': '1234512598'};
+  options.accessTokenBuilder = () async => token;
+  options.transport = HttpTransportType.webSockets;
 
   final builder = HubConnectionBuilder()
     ..url = 'https://devdiscoapi.azurewebsites.net/hub/chat'
@@ -168,7 +171,7 @@ void signal() async {
     ..httpConnectionOptions = options
     ..reconnect = true;
   final connection = builder.build();
-  connection.on('sendAsync', (newList) => print(newList));
+  connection.on('sendAsync', (newList) => print('Received $newList'));
   await connection.startAsync();
 
   await connection.invokeAsync('SendAsync', [6, 'Say hi']);

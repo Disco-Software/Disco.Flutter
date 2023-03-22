@@ -14,9 +14,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../injection.dart';
+import '../home_page.dart';
+import '../widgets/account_drawer.dart';
 
 class ProfilePage extends StatefulWidget implements AutoRouteWrapper {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({
+    Key? key,
+    required this.mainKey,
+  }) : super(key: key);
+
+  final GlobalKey<ScaffoldState> mainKey;
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -32,7 +39,8 @@ class ProfilePage extends StatefulWidget implements AutoRouteWrapper {
 
 class _ProfilePageState extends State<ProfilePage> {
   bool _shouldShowSaved = false;
-  final storedUsername = getIt.get<SecureStorageRepository>().getStoredUserModel();
+  final storedUsername =
+      getIt.get<SecureStorageRepository>().getStoredUserModel();
 
   String _lastStatus = '';
   String _username = '';
@@ -44,31 +52,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(
-          child: ColoredBox(
-            color: DcColors.darkViolet,
-            child: SafeArea(
-              child: Column(
-                children: [
-                  _IconButton(
-                    text: 'Edit',
-                    icon: CupertinoIcons.pen,
-                    onTap: () {},
-                  ),
-                  const SizedBox(height: 20),
-                  _IconButton(
-                    text: 'Log Out',
-                    icon: CupertinoIcons.greaterthan_circle,
-                    onTap: () async {
-                      await getIt.get<SecureStorageRepository>().deleteAll();
-                      context.router.replace(const SplashRoute());
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        drawer: AccountDrawer(userName: _username, photo: _photo),
         backgroundColor: DcColors.darkViolet,
         body: CustomScrollView(
           slivers: [
@@ -89,9 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
               actions: [
                 Builder(builder: (context) {
                   return InkWell(
-                      onTap: () {
-                        Scaffold.of(context).openDrawer();
-                      },
+                      onTap: () {},
                       child: const Padding(
                         padding: EdgeInsets.only(right: 20),
                         child: Icon(CupertinoIcons.list_bullet),
@@ -113,7 +95,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         decoration: const BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                                color: Color(0xffb2a044ff), offset: Offset(0, 5), blurRadius: 10),
+                                color: Color(0xffb2a044ff),
+                                offset: Offset(0, 5),
+                                blurRadius: 10),
                           ],
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(100),
@@ -150,21 +134,31 @@ class _ProfilePageState extends State<ProfilePage> {
                               orElse: () {},
                               loaded: (state) {
                                 setState(() {
-                                  _lastStatus = state.user.account?.status?.lastStatus ?? '';
+                                  _lastStatus =
+                                      state.user.account?.status?.lastStatus ??
+                                          '';
                                   _creed = state.user.account?.creed ?? '';
                                   _photo = state.user.account?.photo ?? '';
                                   _username = state.user.userName ?? '';
-                                  _userTarget = state.user.account?.status?.userTarget ?? 0;
-                                  _currentFollowers =
-                                      state.user.account?.status?.followersCount ?? 0;
+                                  _userTarget =
+                                      state.user.account?.status?.userTarget ??
+                                          0;
+                                  _currentFollowers = state.user.account?.status
+                                          ?.followersCount ??
+                                      0;
                                 });
                               },
                               saved: (state) {
                                 setState(() {
-                                  _lastStatus = state.user.account?.status?.lastStatus ?? '';
-                                  _userTarget = state.user.account?.status?.userTarget ?? 0;
-                                  _currentFollowers =
-                                      state.user.account?.status?.followersCount ?? 0;
+                                  _lastStatus =
+                                      state.user.account?.status?.lastStatus ??
+                                          '';
+                                  _userTarget =
+                                      state.user.account?.status?.userTarget ??
+                                          0;
+                                  _currentFollowers = state.user.account?.status
+                                          ?.followersCount ??
+                                      0;
                                 });
                               });
                         },
@@ -178,7 +172,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         top: 380,
                         child: Text(
                           _username,
-                          style: GoogleFonts.aBeeZee(color: DcColors.white, fontSize: 30),
+                          style: GoogleFonts.aBeeZee(
+                              color: DcColors.white, fontSize: 30),
                         ),
                       ),
                     ],
@@ -189,7 +184,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   padding: const EdgeInsets.symmetric(horizontal: 65),
                   child: Text(
                     _creed,
-                    style: GoogleFonts.textMeOne(color: DcColors.white, fontSize: 20),
+                    style: GoogleFonts.textMeOne(
+                        color: DcColors.white, fontSize: 20),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -205,11 +201,13 @@ class _ProfilePageState extends State<ProfilePage> {
                           children: [
                             Text(
                               'Save',
-                              style: GoogleFonts.aBeeZee(color: DcColors.white, fontSize: 18),
+                              style: GoogleFonts.aBeeZee(
+                                  color: DcColors.white, fontSize: 18),
                             ),
                             Text(
                               'Mine',
-                              style: GoogleFonts.aBeeZee(color: DcColors.white, fontSize: 18),
+                              style: GoogleFonts.aBeeZee(
+                                  color: DcColors.white, fontSize: 18),
                             )
                           ],
                         ),
@@ -268,7 +266,8 @@ class _ProfilePageState extends State<ProfilePage> {
             BlocBuilder<ProfileCubit, ProfileState>(
               builder: (context, state) {
                 if (state is ProfileStateLoading) {
-                  return const SliverToBoxAdapter(child: CircularProgressIndicator.adaptive());
+                  return const SliverToBoxAdapter(
+                      child: CircularProgressIndicator.adaptive());
                 }
                 if (state is ProfileStateLoaded &&
                     state.user.account != null &&
@@ -297,7 +296,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               return UnicornPost(
                                 userName: state.user.userName,
                                 post: state.savedPosts[index],
-                                photo: state.savedPosts[index].account?.photo ?? '',
+                                photo: state.savedPosts[index].account?.photo ??
+                                    '',
                               );
                             },
                             childCount: state.user.account!.posts!.length,
@@ -309,7 +309,8 @@ class _ProfilePageState extends State<ProfilePage> {
                             children: [
                               Text(
                                 'No Saved posts',
-                                style: GoogleFonts.aBeeZee(color: Colors.white, fontSize: 25),
+                                style: GoogleFonts.aBeeZee(
+                                    color: Colors.white, fontSize: 25),
                               ),
                               const SizedBox(height: 200),
                             ],
@@ -344,10 +345,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     onPressed: () async {
                       final ImagePicker _picker = ImagePicker();
 
-                      final XFile? image = await _picker.pickImage(source: ImageSource.camera);
-                      await context.read<ProfileCubit>().setPhoto(image?.path ?? "");
+                      final XFile? image =
+                          await _picker.pickImage(source: ImageSource.camera);
+                      await context
+                          .read<ProfileCubit>()
+                          .setPhoto(image?.path ?? "");
                       context.router.replace(const AddPostRouter());
-                      context.router.replace(const ProfileRoute());
+                      context.router
+                          .replace(ProfileRoute(mainKey: widget.mainKey));
                     },
                     child: const Text(
                       'Take a photo',
@@ -361,8 +366,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     onPressed: () async {
                       final ImagePicker _picker = ImagePicker();
 
-                      final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-                      await context.read<ProfileCubit>().setPhoto(image?.path ?? "");
+                      final XFile? image =
+                          await _picker.pickImage(source: ImageSource.gallery);
+                      await context
+                          .read<ProfileCubit>()
+                          .setPhoto(image?.path ?? "");
                     },
                     child: const Text(
                       'Select a photo',
@@ -373,7 +381,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 ColoredBox(
                   color: DcColors.darkViolet,
                   child: CupertinoActionSheetAction(
-                    onPressed: () => Navigator.of(ctx, rootNavigator: true).pop(),
+                    onPressed: () =>
+                        Navigator.of(ctx, rootNavigator: true).pop(),
                     child: const Text(
                       'Cancel',
                       style: TextStyle(color: DcColors.white),
@@ -382,31 +391,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ],
             ));
-  }
-}
-
-class _IconButton extends StatelessWidget {
-  final VoidCallback onTap;
-  final IconData icon;
-  final String text;
-
-  const _IconButton({
-    Key? key,
-    required this.onTap,
-    required this.icon,
-    required this.text,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: onTap,
-      title: Text(
-        text,
-        style: GoogleFonts.textMeOne(fontSize: 20, color: DcColors.white),
-      ),
-      leading: Icon(icon),
-    );
   }
 }
 
@@ -432,8 +416,8 @@ class _CircularPercentageState extends State<_CircularPercentage>
 
   @override
   void initState() {
-    _animationController =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 1500));
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1500));
     _animationController.forward();
     super.initState();
   }
@@ -471,7 +455,8 @@ class _CircularPercentageState extends State<_CircularPercentage>
               ),
               painter: ProgressBar(
                 progressColor: Colors.orange,
-                arc: _getCurrentValue(widget.current, widget.target) * _animationController.value,
+                arc: _getCurrentValue(widget.current, widget.target) *
+                    _animationController.value,
                 isBackground: false,
                 screenWidth: width,
               ),
@@ -503,7 +488,8 @@ class _CircularPercentageState extends State<_CircularPercentage>
     );
   }
 
-  double _getCurrentValue(int current, int followerTarget) => current / (followerTarget / 3.15);
+  double _getCurrentValue(int current, int followerTarget) =>
+      current / (followerTarget / 3.15);
 }
 
 class ProgressBar extends CustomPainter {

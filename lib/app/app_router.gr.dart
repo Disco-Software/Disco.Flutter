@@ -182,9 +182,14 @@ class AppRouter extends _i20.RootStackRouter {
       );
     },
     ProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileRouteArgs>();
       return _i20.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i20.WrappedRoute(child: const _i16.ProfilePage()),
+        child: _i20.WrappedRoute(
+            child: _i16.ProfilePage(
+          key: args.key,
+          mainKey: args.mainKey,
+        )),
       );
     },
     AddPostRoute.name: (routeData) {
@@ -650,14 +655,36 @@ class ChatRoute extends _i20.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i16.ProfilePage]
-class ProfileRoute extends _i20.PageRouteInfo<void> {
-  const ProfileRoute()
-      : super(
+class ProfileRoute extends _i20.PageRouteInfo<ProfileRouteArgs> {
+  ProfileRoute({
+    _i21.Key? key,
+    required _i21.GlobalKey<_i21.ScaffoldState> mainKey,
+  }) : super(
           ProfileRoute.name,
           path: 'profile',
+          args: ProfileRouteArgs(
+            key: key,
+            mainKey: mainKey,
+          ),
         );
 
   static const String name = 'ProfileRoute';
+}
+
+class ProfileRouteArgs {
+  const ProfileRouteArgs({
+    this.key,
+    required this.mainKey,
+  });
+
+  final _i21.Key? key;
+
+  final _i21.GlobalKey<_i21.ScaffoldState> mainKey;
+
+  @override
+  String toString() {
+    return 'ProfileRouteArgs{key: $key, mainKey: $mainKey}';
+  }
 }
 
 /// generated route for
