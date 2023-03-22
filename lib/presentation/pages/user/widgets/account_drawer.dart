@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:disco_app/presentation/common_widgets/post/widgets/post_author.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,8 +10,7 @@ import '../../../../injection.dart';
 import '../../../../res/colors.dart';
 
 class AccountDrawer extends StatelessWidget {
-  const AccountDrawer({Key? key, required this.userName, required this.photo})
-      : super(key: key);
+  const AccountDrawer({Key? key, required this.userName, required this.photo}) : super(key: key);
 
   final String? userName;
   final String? photo;

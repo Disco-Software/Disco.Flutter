@@ -39,8 +39,7 @@ class ProfilePage extends StatefulWidget implements AutoRouteWrapper {
 
 class _ProfilePageState extends State<ProfilePage> {
   bool _shouldShowSaved = false;
-  final storedUsername =
-      getIt.get<SecureStorageRepository>().getStoredUserModel();
+  final storedUsername = getIt.get<SecureStorageRepository>().getStoredUserModel();
 
   String _lastStatus = '';
   String _username = '';
@@ -51,287 +50,261 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        drawer: AccountDrawer(userName: _username, photo: _photo),
-        backgroundColor: DcColors.darkViolet,
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: DcColors.darkViolet,
-              leading: const SizedBox(),
-              leadingWidth: 0,
-              centerTitle: false,
-              title: const Text(
-                "DISCO",
-                style: TextStyle(
-                  fontSize: 32,
-                  fontFamily: 'Colonna',
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.start,
-              ),
-              actions: [
-                Builder(builder: (context) {
-                  return InkWell(
-                      onTap: () {},
-                      child: const Padding(
-                        padding: EdgeInsets.only(right: 20),
-                        child: Icon(CupertinoIcons.list_bullet),
-                      ));
-                })
-              ],
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          backgroundColor: DcColors.darkViolet,
+          leading: const SizedBox(),
+          leadingWidth: 0,
+          centerTitle: false,
+          title: const Text(
+            "DISCO",
+            style: TextStyle(
+              fontSize: 32,
+              fontFamily: 'Colonna',
+              fontWeight: FontWeight.bold,
             ),
-            SliverList(
-                delegate: SliverChildListDelegate(
-              [
-                GestureDetector(
-                  onTap: () async {
-                    await _onPhotoTap(context);
-                  },
-                  child: Stack(
-                    alignment: Alignment.topCenter,
-                    children: [
-                      DecoratedBox(
-                        decoration: const BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0xffb2a044ff),
-                                offset: Offset(0, 5),
-                                blurRadius: 10),
-                          ],
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(100),
-                            bottomRight: Radius.circular(100),
-                          ),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(100),
-                            bottomRight: Radius.circular(100),
-                          ),
-                          child: Image.network(
-                            _photo,
+            textAlign: TextAlign.start,
+          ),
+          actions: [
+            Builder(builder: (context) {
+              return InkWell(
+                  onTap: () => Scaffold.of(context).openDrawer(),
+                  child: const Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: Icon(CupertinoIcons.list_bullet),
+                  ));
+            })
+          ],
+        ),
+        SliverList(
+            delegate: SliverChildListDelegate(
+          [
+            GestureDetector(
+              onTap: () async {
+                await _onPhotoTap(context);
+              },
+              child: Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  DecoratedBox(
+                    decoration: const BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(color: Color(0xffb2a044ff), offset: Offset(0, 5), blurRadius: 10),
+                      ],
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(100),
+                        bottomRight: Radius.circular(100),
+                      ),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(100),
+                        bottomRight: Radius.circular(100),
+                      ),
+                      child: Image.network(
+                        _photo,
+                        height: 270,
+                        width: 300,
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center,
+                        errorBuilder: (ctx, onj, trace) => Container(
+                          color: Colors.white,
+                          child: Image.asset(
+                            'assets/ic_photo.png',
                             height: 270,
                             width: 300,
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                             alignment: Alignment.center,
-                            errorBuilder: (ctx, onj, trace) => Container(
-                              color: Colors.white,
-                              child: Image.asset(
-                                'assets/ic_photo.png',
-                                height: 270,
-                                width: 300,
-                                fit: BoxFit.fill,
-                                alignment: Alignment.center,
-                              ),
-                            ),
                           ),
                         ),
                       ),
-                      BlocListener<ProfileCubit, ProfileState>(
-                        listener: (context, state) {
-                          state.maybeMap(
-                              orElse: () {},
-                              loaded: (state) {
-                                setState(() {
-                                  _lastStatus =
-                                      state.user.account?.status?.lastStatus ??
-                                          '';
-                                  _creed = state.user.account?.creed ?? '';
-                                  _photo = state.user.account?.photo ?? '';
-                                  _username = state.user.userName ?? '';
-                                  _userTarget =
-                                      state.user.account?.status?.userTarget ??
-                                          0;
-                                  _currentFollowers = state.user.account?.status
-                                          ?.followersCount ??
-                                      0;
-                                });
-                              },
-                              saved: (state) {
-                                setState(() {
-                                  _lastStatus =
-                                      state.user.account?.status?.lastStatus ??
-                                          '';
-                                  _userTarget =
-                                      state.user.account?.status?.userTarget ??
-                                          0;
-                                  _currentFollowers = state.user.account?.status
-                                          ?.followersCount ??
-                                      0;
-                                });
-                              });
-                        },
-                        child: _CircularPercentage(
-                          status: _lastStatus,
-                          target: _userTarget,
-                          current: _currentFollowers,
-                        ),
-                      ),
-                      Positioned(
-                        top: 380,
-                        child: Text(
-                          _username,
-                          style: GoogleFonts.aBeeZee(
-                              color: DcColors.white, fontSize: 30),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 65),
-                  child: Text(
-                    _creed,
-                    style: GoogleFonts.textMeOne(
-                        color: DcColors.white, fontSize: 20),
-                    textAlign: TextAlign.center,
+                  BlocListener<ProfileCubit, ProfileState>(
+                    listener: (context, state) {
+                      state.maybeMap(
+                          orElse: () {},
+                          loaded: (state) {
+                            setState(() {
+                              _lastStatus = state.user.account?.status?.lastStatus ?? '';
+                              _creed = state.user.account?.creed ?? '';
+                              _photo = state.user.account?.photo ?? '';
+                              _username = state.user.userName ?? '';
+                              _userTarget = state.user.account?.status?.userTarget ?? 0;
+                              _currentFollowers = state.user.account?.status?.followersCount ?? 0;
+                            });
+                          },
+                          saved: (state) {
+                            setState(() {
+                              _lastStatus = state.user.account?.status?.lastStatus ?? '';
+                              _userTarget = state.user.account?.status?.userTarget ?? 0;
+                              _currentFollowers = state.user.account?.status?.followersCount ?? 0;
+                            });
+                          });
+                    },
+                    child: _CircularPercentage(
+                      status: _lastStatus,
+                      target: _userTarget,
+                      current: _currentFollowers,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 30),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 30),
-                  child: SizedBox(
-                    width: 237,
-                    child: Column(
+                  Positioned(
+                    top: 380,
+                    child: Text(
+                      _username,
+                      style: GoogleFonts.aBeeZee(color: DcColors.white, fontSize: 30),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 65),
+              child: Text(
+                _creed,
+                style: GoogleFonts.textMeOne(color: DcColors.white, fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30),
+              child: SizedBox(
+                width: 237,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              'Save',
-                              style: GoogleFonts.aBeeZee(
-                                  color: DcColors.white, fontSize: 18),
-                            ),
-                            Text(
-                              'Mine',
-                              style: GoogleFonts.aBeeZee(
-                                  color: DcColors.white, fontSize: 18),
-                            )
-                          ],
+                        Text(
+                          'Save',
+                          style: GoogleFonts.aBeeZee(color: DcColors.white, fontSize: 18),
                         ),
-                        const SizedBox(height: 10),
-                        SizedBox(
-                          width: 237,
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Container(
-                                  width: 237,
-                                  height: 13,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    color: DcColors.sliderBackground,
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    _shouldShowSaved = !_shouldShowSaved;
-                                  });
-                                  if (_shouldShowSaved) {
-                                    context.read<ProfileCubit>().loadSaved();
-                                  } else {
-                                    context.read<ProfileCubit>().loadMine();
-                                  }
-                                },
-                                child: AnimatedAlign(
-                                  alignment: _shouldShowSaved
-                                      ? Alignment.centerLeft
-                                      : Alignment.centerRight,
-                                  duration: const Duration(milliseconds: 300),
-                                  child: Container(
-                                    width: 237 / 2,
-                                    height: 13,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(7),
-                                      color: Colors.orange,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        Text(
+                          'Mine',
+                          style: GoogleFonts.aBeeZee(color: DcColors.white, fontSize: 18),
+                        )
                       ],
                     ),
-                  ),
-                ),
-              ],
-            )),
-            BlocBuilder<ProfileCubit, ProfileState>(
-              builder: (context, state) {
-                if (state is ProfileStateLoading) {
-                  return const SliverToBoxAdapter(
-                      child: CircularProgressIndicator.adaptive());
-                }
-                if (state is ProfileStateLoaded &&
-                    state.user.account != null &&
-                    state.user.account!.posts != null) {
-                  return SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (ctx, index) {
-                        return UnicornPost(
-                          userName: state.user.userName,
-                          post: state.user.account!.posts![index],
-                          photo: state.user.account!.photo ?? '',
-                        );
-                      },
-                      childCount: state.user.account!.posts!.length,
-                    ),
-                  );
-                }
-
-                if (state is ProfileStateSaved &&
-                    state.user.account != null &&
-                    state.user.account!.posts != null) {
-                  return state.savedPosts.isNotEmpty
-                      ? SliverList(
-                          delegate: SliverChildBuilderDelegate(
-                            (ctx, index) {
-                              return UnicornPost(
-                                userName: state.user.userName,
-                                post: state.savedPosts[index],
-                                photo: state.savedPosts[index].account?.photo ??
-                                    '',
-                              );
-                            },
-                            childCount: state.user.account!.posts!.length,
-                          ),
-                        )
-                      : SliverToBoxAdapter(
-                          child: Center(
-                          child: Column(
-                            children: [
-                              Text(
-                                'No Saved posts',
-                                style: GoogleFonts.aBeeZee(
-                                    color: Colors.white, fontSize: 25),
+                    const SizedBox(height: 10),
+                    SizedBox(
+                      width: 237,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Container(
+                              width: 237,
+                              height: 13,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(7),
+                                color: DcColors.sliderBackground,
                               ),
-                              const SizedBox(height: 200),
-                            ],
+                            ),
                           ),
-                        ));
-                }
-
-                if (state is ProfileStateLoaded) {
-                  return SliverToBoxAdapter(
-                    child: Center(
-                      child: Image.asset('assets/music.gif'),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                _shouldShowSaved = !_shouldShowSaved;
+                              });
+                              if (_shouldShowSaved) {
+                                context.read<ProfileCubit>().loadSaved();
+                              } else {
+                                context.read<ProfileCubit>().loadMine();
+                              }
+                            },
+                            child: AnimatedAlign(
+                              alignment:
+                                  _shouldShowSaved ? Alignment.centerLeft : Alignment.centerRight,
+                              duration: const Duration(milliseconds: 300),
+                              child: Container(
+                                width: 237 / 2,
+                                height: 13,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: Colors.orange,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  );
-                }
-
-                return const SliverPadding(padding: EdgeInsets.all(1));
-              },
+                  ],
+                ),
+              ),
             ),
-            const SliverPadding(padding: EdgeInsets.only(bottom: 200)),
           ],
-        ));
+        )),
+        BlocBuilder<ProfileCubit, ProfileState>(
+          builder: (context, state) {
+            if (state is ProfileStateLoading) {
+              return const SliverToBoxAdapter(child: CircularProgressIndicator.adaptive());
+            }
+            if (state is ProfileStateLoaded &&
+                state.user.account != null &&
+                state.user.account!.posts != null) {
+              return SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (ctx, index) {
+                    return UnicornPost(
+                      userName: state.user.userName,
+                      post: state.user.account!.posts![index],
+                      photo: state.user.account!.photo ?? '',
+                    );
+                  },
+                  childCount: state.user.account!.posts!.length,
+                ),
+              );
+            }
+
+            if (state is ProfileStateSaved &&
+                state.user.account != null &&
+                state.user.account!.posts != null) {
+              return state.savedPosts.isNotEmpty
+                  ? SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (ctx, index) {
+                          return UnicornPost(
+                            userName: state.user.userName,
+                            post: state.savedPosts[index],
+                            photo: state.savedPosts[index].account?.photo ?? '',
+                          );
+                        },
+                        childCount: state.user.account!.posts!.length,
+                      ),
+                    )
+                  : SliverToBoxAdapter(
+                      child: Center(
+                      child: Column(
+                        children: [
+                          Text(
+                            'No Saved posts',
+                            style: GoogleFonts.aBeeZee(color: Colors.white, fontSize: 25),
+                          ),
+                          const SizedBox(height: 200),
+                        ],
+                      ),
+                    ));
+            }
+
+            if (state is ProfileStateLoaded) {
+              return SliverToBoxAdapter(
+                child: Center(
+                  child: Image.asset('assets/music.gif'),
+                ),
+              );
+            }
+
+            return const SliverPadding(padding: EdgeInsets.all(1));
+          },
+        ),
+        const SliverPadding(padding: EdgeInsets.only(bottom: 200)),
+      ],
+    );
   }
 
   Future<void> _onPhotoTap(BuildContext context) async {
@@ -345,14 +318,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     onPressed: () async {
                       final ImagePicker _picker = ImagePicker();
 
-                      final XFile? image =
-                          await _picker.pickImage(source: ImageSource.camera);
-                      await context
-                          .read<ProfileCubit>()
-                          .setPhoto(image?.path ?? "");
+                      final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+                      await context.read<ProfileCubit>().setPhoto(image?.path ?? "");
                       context.router.replace(const AddPostRouter());
-                      context.router
-                          .replace(ProfileRoute(mainKey: widget.mainKey));
+                      context.router.replace(ProfileRoute(mainKey: widget.mainKey));
                     },
                     child: const Text(
                       'Take a photo',
@@ -366,11 +335,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     onPressed: () async {
                       final ImagePicker _picker = ImagePicker();
 
-                      final XFile? image =
-                          await _picker.pickImage(source: ImageSource.gallery);
-                      await context
-                          .read<ProfileCubit>()
-                          .setPhoto(image?.path ?? "");
+                      final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+                      await context.read<ProfileCubit>().setPhoto(image?.path ?? "");
                     },
                     child: const Text(
                       'Select a photo',
@@ -381,8 +347,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ColoredBox(
                   color: DcColors.darkViolet,
                   child: CupertinoActionSheetAction(
-                    onPressed: () =>
-                        Navigator.of(ctx, rootNavigator: true).pop(),
+                    onPressed: () => Navigator.of(ctx, rootNavigator: true).pop(),
                     child: const Text(
                       'Cancel',
                       style: TextStyle(color: DcColors.white),
@@ -416,8 +381,8 @@ class _CircularPercentageState extends State<_CircularPercentage>
 
   @override
   void initState() {
-    _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 1500));
+    _animationController =
+        AnimationController(vsync: this, duration: const Duration(milliseconds: 1500));
     _animationController.forward();
     super.initState();
   }
@@ -455,8 +420,7 @@ class _CircularPercentageState extends State<_CircularPercentage>
               ),
               painter: ProgressBar(
                 progressColor: Colors.orange,
-                arc: _getCurrentValue(widget.current, widget.target) *
-                    _animationController.value,
+                arc: _getCurrentValue(widget.current, widget.target) * _animationController.value,
                 isBackground: false,
                 screenWidth: width,
               ),
@@ -488,8 +452,7 @@ class _CircularPercentageState extends State<_CircularPercentage>
     );
   }
 
-  double _getCurrentValue(int current, int followerTarget) =>
-      current / (followerTarget / 3.15);
+  double _getCurrentValue(int current, int followerTarget) => current / (followerTarget / 3.15);
 }
 
 class ProgressBar extends CustomPainter {
