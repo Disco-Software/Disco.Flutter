@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:disco_app/app/app_router.gr.dart';
 import 'package:disco_app/presentation/common_widgets/unicorn_outline_button.dart';
-import 'package:disco_app/presentation/pages/user/widgets/account_drawer.dart';
+import 'package:disco_app/presentation/pages/user/widgets/drawer/account_drawer.dart';
 import 'package:disco_app/presentation/pages/user/widgets/add_post_observer.dart';
 import 'package:disco_app/presentation/providers/post_provider.dart';
 import 'package:disco_app/res/colors.dart';

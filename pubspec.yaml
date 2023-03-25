@@ -56,6 +56,8 @@ dependencies:
   objectbox: 1.7.0
   objectbox_flutter_libs: any
   signalr_pure: ^1.1.0
+  leak_detector: ^1.0.1+4
+  equatable: ^2.0.5
 
 #  web_socket_channel: ^2.2.0
 

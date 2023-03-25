@@ -22,7 +22,7 @@ void main() {
       BlocProvider<PostsCubit>(create: (_) => PostsCubit(postRepository: getIt())),
       // BlocProvider<LikeCubit>(create: (_) => LikeCubit(postRepository: getIt())),
       BlocProvider<StoriesCubit>(create: (_) => StoriesCubit(storiesRepository: getIt())),
-      BlocProvider(create: (context) => SearchCubit())
+      BlocProvider<SearchCubit>(create: (_) => SearchCubit())
     ], child: MyApp()),
   ));
 }
