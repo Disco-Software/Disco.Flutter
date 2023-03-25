@@ -5,11 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class PostAuthor extends StatelessWidget {
   const PostAuthor(
-      {Key? key,
-      required this.userName,
-      required this.photo,
-      this.boxShadow,
-      this.backgroundColor})
+      {Key? key, required this.userName, required this.photo, this.boxShadow, this.backgroundColor})
       : super(key: key);
 
   final String? photo;
@@ -48,12 +44,13 @@ class PostAuthor extends StatelessWidget {
                       topRight: Radius.circular(100),
                       bottomRight: Radius.circular(100),
                     ),
-                    child: CachedNetworkImage(
-                      imageUrl: photo ?? '',
-                      placeholder: (context, url) =>
-                          Image.asset('assets/ic_photo.png'),
-                      fit: BoxFit.fill,
-                    ),
+                    child: photo!.isNotEmpty
+                        ? CachedNetworkImage(
+                            imageUrl: photo ?? '',
+                            placeholder: (context, url) => Image.asset('assets/ic_photo.png'),
+                            fit: BoxFit.fill,
+                          )
+                        : Image.asset('assets/ic_photo.png'),
                   )
                 : Container(
                     decoration: const BoxDecoration(

@@ -15,7 +15,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../../injection.dart';
 import '../home_page.dart';
-import '../widgets/account_drawer.dart';
+import '../widgets/drawer/account_drawer.dart';
 
 class ProfilePage extends StatefulWidget implements AutoRouteWrapper {
   const ProfilePage({

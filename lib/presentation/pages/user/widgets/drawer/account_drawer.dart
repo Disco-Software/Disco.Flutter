@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:disco_app/presentation/common_widgets/post/widgets/post_author.dart';
+import 'package:disco_app/presentation/pages/user/widgets/drawer/head_drawer/head_darwer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../app/app_router.gr.dart';
-import '../../../../data/local/local_storage.dart';
-import '../../../../injection.dart';
-import '../../../../res/colors.dart';
+import '../../../../../app/app_router.gr.dart';
+import '../../../../../data/local/local_storage.dart';
+import '../../../../../injection.dart';
+import '../../../../../res/colors.dart';
 
 class AccountDrawer extends StatelessWidget {
   const AccountDrawer({Key? key, required this.userName, required this.photo}) : super(key: key);
@@ -22,28 +23,7 @@ class AccountDrawer extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              Stack(children: [
-                ClipPath(
-                  clipper: MyCustomClipper(),
-                  child: Container(
-                    height: 100,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF362053),
-                    ),
-                  ),
-                ),
-                PostAuthor(
-                  boxShadow: const BoxShadow(
-                      color: Color(0xFFB21887D7),
-                      offset: Offset(2, 3),
-                      spreadRadius: 0,
-                      blurRadius: 7),
-                  userName: userName,
-                  photo: photo,
-                  backgroundColor: Colors.transparent,
-                ),
-              ]),
+              const HeaderDrawerView(),
               const SizedBox(
                 height: 105,
               ),
@@ -236,30 +216,4 @@ class _IconButton extends StatelessWidget {
       leading: SvgPicture.asset(icon),
     );
   }
-}
-
-class MyCustomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    double radius = 20;
-
-    Path path = Path()
-      ..moveTo(0, 0) // point p1
-      ..lineTo(0, size.height) // point p2
-      ..lineTo(60, size.height) // point p3
-      ..arcToPoint(
-        const Offset(70, 0),
-        clockwise: false,
-        radius: const Radius.circular(1),
-      )
-      ..lineTo(100, 60) // point p4
-      ..lineTo(size.width, 60) // point p5
-      ..lineTo(size.width, 0) // point p6
-      ..close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
