@@ -4,6 +4,8 @@ import 'dart:developer';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:disco_app/app/app_router.gr.dart';
+import 'package:disco_app/data/network/network_models/chat_group.dart';
+import 'package:disco_app/data/network/network_models/chat_message.dart';
 import 'package:disco_app/injection.dart';
 import 'package:disco_app/presentation/common_widgets/unicorn_image.dart';
 import 'package:disco_app/presentation/pages/user/chat/chat_cubit/chat_state.dart';
@@ -121,14 +123,9 @@ class _ChatPageState extends State<ChatPage> {
                     padding: const EdgeInsets.only(bottom: 30),
                     child: GestureDetector(
                       onTap: () => context.router.push(const MessageRoute()),
-                      child: _MessageCard(
-                        userName:
-                            _getUsername(state, index, state.currentUserId),
-                        message:
-                            state.groups[index].messages?.last.description ??
-                                '',
-                        date:
-                            '${state.groups[index].messages?.last.createdDate ?? 'undefined date'}',
+                      child: _GroupCardCard(
+                        userName: _getUsername(state, index, state.currentUserId),
+                        group: state.groups[index],
                       ),
                     ),
                   ),
@@ -177,18 +174,16 @@ void signal() async {
   await connection.invokeAsync('SendAsync', [6, 'Say hi']);
 }
 
-class _MessageCard extends StatelessWidget {
+class _GroupCardCard extends StatelessWidget {
   final String? photo;
   final String userName;
-  final String message;
-  final String date;
+  final ChatGroup? group;
 
-  const _MessageCard({
+  const _GroupCardCard({
     Key? key,
     this.photo,
     required this.userName,
-    required this.message,
-    required this.date,
+    required this.group,
   }) : super(key: key);
 
   @override
@@ -204,10 +199,7 @@ class _MessageCard extends StatelessWidget {
             ),
             boxShadow: [
               BoxShadow(
-                  color: Color(0xFFB21887D7),
-                  offset: Offset(2, 3),
-                  spreadRadius: 7,
-                  blurRadius: 7)
+                  color: Color(0xFFB21887D7), offset: Offset(2, 3), spreadRadius: 7, blurRadius: 7)
             ]),
         child: photo != null
             ? ClipRRect(
@@ -217,8 +209,7 @@ class _MessageCard extends StatelessWidget {
                 ),
                 child: CachedNetworkImage(
                   imageUrl: photo ?? '',
-                  placeholder: (context, url) =>
-                      Image.asset('assets/ic_photo.png'),
+                  placeholder: (context, url) => Image.asset('assets/ic_photo.png'),
                   fit: BoxFit.fill,
                 ),
               )
@@ -253,7 +244,7 @@ class _MessageCard extends StatelessWidget {
               fontSize: 24,
             ),
           ),
-          Text(message,
+          Text(group?.messages?.length == 0 ? '' : group?.messages?.last.description ?? '',
               style: GoogleFonts.aBeeZee(
                 color: const Color(0xFFE6E0D2),
                 fontSize: 24,
@@ -261,7 +252,10 @@ class _MessageCard extends StatelessWidget {
         ],
       ),
       const Spacer(),
-      Text(date,
+      Text(
+          group?.messages?.length == 0
+              ? ''
+              : '${group?.messages?.last.createdDate ?? 'undefined date'}',
           style: GoogleFonts.aBeeZee(
             color: const Color(0xFFE6E0D2),
             fontSize: 15,
