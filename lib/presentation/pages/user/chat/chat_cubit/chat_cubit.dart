@@ -26,9 +26,16 @@ class ChatCubit extends Cubit<ChatState> {
       emit(const ChatState.loading());
       final groups = await chatRepository.fetchChatGroups(pageNumber, pageSize);
 
+      print([
+        groups,
+        '<===============',
+      ]);
+
       if (groups != null) {
-        final userId = await secureStorageRepository.read(key: Strings.accountId);
-        emit(ChatState.loaded(groups: groups, currentUserId: int.parse(userId)));
+        final userId =
+            await secureStorageRepository.read(key: Strings.accountId);
+        emit(
+            ChatState.loaded(groups: groups, currentUserId: int.parse(userId)));
       }
     } catch (err) {
       emit(const ChatState.error());

@@ -12,9 +12,16 @@ class HeaderDrawerView extends StatelessWidget {
       create: (context) => HeadDraverCubit()..init(),
       child: Stack(children: [
         ClipPath(
+          clipper: _ShadowCustomClipper(),
+          child: Container(
+            color: const Color.fromRGBO(160, 68, 255, 0.2),
+            height: 110,
+          ),
+        ),
+        ClipPath(
           clipper: _MyCustomClipper(),
           child: Container(
-            height: 100,
+            height: 90,
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
               color: Color(0xFF362053),
@@ -66,6 +73,30 @@ class _MyCustomClipper extends CustomClipper<Path> {
       ..lineTo(100, 60) // point p4
       ..lineTo(size.width, 60) // point p5
       ..lineTo(size.width, 0) // point p6
+      ..close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class _ShadowCustomClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path()
+      ..moveTo(0, 0)
+      ..lineTo(0, size.height - 10)
+      ..lineTo(60, size.height - 10)
+      ..arcToPoint(
+        const Offset(80, 0),
+        clockwise: false,
+        radius: const Radius.circular(1),
+      )
+      ..lineTo(110, 70)
+      ..lineTo(size.width, 70)
+      ..lineTo(size.width, 0)
       ..close();
 
     return path;
