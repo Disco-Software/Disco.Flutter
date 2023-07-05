@@ -122,7 +122,7 @@ class _ChatPageState extends State<ChatPage> {
                   (context, index) => Padding(
                     padding: const EdgeInsets.only(bottom: 30),
                     child: GestureDetector(
-                      onTap: () => context.router.push(const MessageRoute()),
+                      // onTap: () => context.router.push(const MessageRoute()),
                       child: _GroupCardCard(
                         userName: _getUsername(state, index, state.currentUserId),
                         group: state.groups[index],

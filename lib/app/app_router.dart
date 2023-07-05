@@ -30,7 +30,7 @@ import 'package:flutter/material.dart';
     AutoRoute(path: "/registration", page: RegistrationPage),
     AutoRoute(path: '/fullscreen-video', page: FullScreenVideoPage),
     AutoRoute(path: '/follower-account', page: UserProfilePage),
-    AutoRoute(path: '/message', page: MessagePage),
+    // AutoRoute(path: '/message', page: MessagePage),
     CustomRoute(
       path: '/search_page',
       page: SearchPage,
