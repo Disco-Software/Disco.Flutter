@@ -13,6 +13,7 @@ import 'bloc/registration_bloc.dart';
 import 'bloc/registration_event.dart';
 import 'bloc/registration_state.dart';
 
+@RoutePage()
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({Key? key}) : super(key: key);
   static const routeName = '/registration';

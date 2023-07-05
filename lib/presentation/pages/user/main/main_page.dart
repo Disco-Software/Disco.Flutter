@@ -16,6 +16,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'bloc/posts_state.dart';
 
+@RoutePage()
 class MainPage extends StatelessWidget {
   const MainPage({
     Key? key,

@@ -19,6 +19,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'bloc/search_page_cubit.dart';
 import 'bloc/search_page_state.dart';
 
+@RoutePage()
 class SearchPage extends StatefulWidget implements AutoRouteWrapper {
   const SearchPage({Key? key}) : super(key: key);
 

@@ -19,6 +19,7 @@ import 'package:provider/src/provider.dart';
 
 import 'widgets/video_card.dart';
 
+@RoutePage()
 class SelectFilesPage extends StatefulWidget {
   const SelectFilesPage({Key? key}) : super(key: key);
 

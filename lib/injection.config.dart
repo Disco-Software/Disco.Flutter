@@ -4,57 +4,47 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+// ignore_for_file: unnecessary_lambdas
+// ignore_for_file: lines_longer_than_80_chars
+// coverage:ignore-file
+
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i6;
-import 'package:disco_app/data/local/local_storage.dart' as _i5;
-import 'package:disco_app/data/network/api/account_details_api.dart' as _i16;
-import 'package:disco_app/data/network/api/auth_api.dart' as _i18;
-import 'package:disco_app/data/network/api/chat_api.dart' as _i19;
-import 'package:disco_app/data/network/api/follower_api.dart' as _i7;
-import 'package:disco_app/data/network/api/post_api.dart' as _i9;
-import 'package:disco_app/data/network/api/search_api.dart' as _i12;
-import 'package:disco_app/data/network/api/stories_api.dart' as _i14;
-import 'package:disco_app/data/network/network_client.dart' as _i22;
-import 'package:disco_app/data/network/repositories/account_details_repository.dart'
-    as _i17;
-import 'package:disco_app/data/network/repositories/chat_repository.dart'
-    as _i20;
-import 'package:disco_app/data/network/repositories/follower_repository.dart'
-    as _i8;
-import 'package:disco_app/data/network/repositories/post_repository.dart'
-    as _i10;
-import 'package:disco_app/data/network/repositories/search_repository.dart'
-    as _i13;
-import 'package:disco_app/data/network/repositories/stories_repository.dart'
-    as _i15;
-import 'package:disco_app/data/network/repositories/user_repository.dart'
-    as _i24;
-import 'package:disco_app/presentation/pages/authentication/login/bloc/login_bloc.dart'
-    as _i26;
-import 'package:disco_app/presentation/pages/authentication/registration/bloc/registration_bloc.dart'
-    as _i28;
-import 'package:disco_app/presentation/pages/search/bloc/search_page_cubit.dart'
-    as _i23;
-import 'package:disco_app/presentation/pages/user/chat/chat_cubit/chat_cubit.dart'
-    as _i25;
-import 'package:disco_app/presentation/pages/user/main/bloc/like_cubit.dart'
-    as _i21;
-import 'package:disco_app/presentation/pages/user/main/bloc/posts_cubit.dart'
-    as _i11;
-import 'package:disco_app/presentation/pages/user/profile/bloc/profile_cubit.dart'
-    as _i27;
-import 'package:disco_app/presentation/pages/user/profile/bloc/subscribe_cubit.dart'
-    as _i29;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:just_audio/just_audio.dart' as _i3;
 
+import 'data/local/local_storage.dart' as _i5;
+import 'data/network/api/account_details_api.dart' as _i16;
+import 'data/network/api/auth_api.dart' as _i18;
+import 'data/network/api/chat_api.dart' as _i19;
+import 'data/network/api/follower_api.dart' as _i7;
+import 'data/network/api/post_api.dart' as _i9;
+import 'data/network/api/search_api.dart' as _i12;
+import 'data/network/api/stories_api.dart' as _i14;
+import 'data/network/network_client.dart' as _i22;
+import 'data/network/repositories/account_details_repository.dart' as _i17;
+import 'data/network/repositories/chat_repository.dart' as _i20;
+import 'data/network/repositories/follower_repository.dart' as _i8;
+import 'data/network/repositories/post_repository.dart' as _i10;
+import 'data/network/repositories/search_repository.dart' as _i13;
+import 'data/network/repositories/stories_repository.dart' as _i15;
+import 'data/network/repositories/user_repository.dart' as _i24;
+import 'presentation/pages/authentication/login/bloc/login_bloc.dart' as _i26;
+import 'presentation/pages/authentication/registration/bloc/registration_bloc.dart'
+    as _i28;
+import 'presentation/pages/search/bloc/search_page_cubit.dart' as _i23;
+import 'presentation/pages/user/chat/chat_cubit/chat_cubit.dart' as _i25;
+import 'presentation/pages/user/main/bloc/like_cubit.dart' as _i21;
+import 'presentation/pages/user/main/bloc/posts_cubit.dart' as _i11;
+import 'presentation/pages/user/profile/bloc/profile_cubit.dart' as _i27;
+import 'presentation/pages/user/profile/bloc/subscribe_cubit.dart' as _i29;
 import 'register_module.dart' as _i30;
 
-/// ignore_for_file: unnecessary_lambdas
-/// ignore_for_file: lines_longer_than_80_chars
-/// initializes the registration of main-scope dependencies inside of [GetIt]
+// ignore_for_file: unnecessary_lambdas
+// ignore_for_file: lines_longer_than_80_chars
+// initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
   _i1.GetIt getIt, {
   String? environment,

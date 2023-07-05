@@ -14,6 +14,7 @@ import 'bloc/login_bloc.dart';
 import 'bloc/login_event.dart';
 import 'bloc/login_state.dart';
 
+@RoutePage()
 class LoginPage extends StatefulWidget implements AutoRouteWrapper {
   const LoginPage({Key? key}) : super(key: key);
   static const routeName = "/log-in";

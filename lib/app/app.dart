@@ -2,7 +2,7 @@ import 'package:disco_app/res/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'app_router.gr.dart';
+import 'app_router.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);

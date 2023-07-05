@@ -19,6 +19,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../injection.dart';
 
+@RoutePage()
 class UserProfilePage extends StatefulWidget implements AutoRouteWrapper {
   const UserProfilePage({Key? key, required this.userId}) : super(key: key);
 

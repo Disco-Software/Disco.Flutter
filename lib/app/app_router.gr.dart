@@ -1,78 +1,104 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i19;
-import 'package:auto_route/empty_router_widgets.dart' as _i13;
-import 'package:flutter/material.dart' as _i20;
+import 'package:auto_route/auto_route.dart' as _i18;
+import 'package:disco_app/presentation/pages/authentication/login/login_page.dart'
+    as _i17;
+import 'package:disco_app/presentation/pages/authentication/registration/registration.dart'
+    as _i15;
+import 'package:disco_app/presentation/pages/authentication/search_registration/search_registration_page.dart'
+    as _i16;
+import 'package:disco_app/presentation/pages/search/search_page.dart' as _i14;
+import 'package:disco_app/presentation/pages/start/splash_page.dart' as _i1;
+import 'package:disco_app/presentation/pages/user/add_post/add_post_page.dart'
+    as _i6;
+import 'package:disco_app/presentation/pages/user/add_post/record_audio_page.dart'
+    as _i7;
+import 'package:disco_app/presentation/pages/user/add_post/select_files_page.dart'
+    as _i5;
+import 'package:disco_app/presentation/pages/user/add_post/widgets/fullscreen_video.dart'
+    as _i8;
+import 'package:disco_app/presentation/pages/user/chat/chat_page.dart' as _i4;
+import 'package:disco_app/presentation/pages/user/home_page.dart' as _i11;
+import 'package:disco_app/presentation/pages/user/main/main_page.dart' as _i12;
+import 'package:disco_app/presentation/pages/user/main/pages/stories/story_page.dart'
+    as _i13;
+import 'package:disco_app/presentation/pages/user/profile/profile_page.dart'
+    as _i10;
+import 'package:disco_app/presentation/pages/user/profile/user_profile_page.dart'
+    as _i9;
+import 'package:disco_app/presentation/pages/user/saved/saved.dart' as _i2;
+import 'package:disco_app/presentation/pages/user/saved/saved_item_page/saved_item.dart'
+    as _i3;
+import 'package:flutter/cupertino.dart' as _i20;
+import 'package:flutter/material.dart' as _i19;
 import 'package:video_player/video_player.dart' as _i21;
 
-import '../presentation/pages/authentication/login/login_page.dart' as _i2;
-import '../presentation/pages/authentication/registration/registration.dart'
-    as _i4;
-import '../presentation/pages/authentication/search_registration/search_registration_page.dart'
-    as _i3;
-import '../presentation/pages/search/search_page.dart' as _i7;
-import '../presentation/pages/start/splash_page.dart' as _i1;
-import '../presentation/pages/user/add_post/add_post_page.dart' as _i16;
-import '../presentation/pages/user/add_post/record_audio_page.dart' as _i17;
-import '../presentation/pages/user/add_post/select_files_page.dart' as _i18;
-import '../presentation/pages/user/add_post/widgets/fullscreen_video.dart'
-    as _i5;
-import '../presentation/pages/user/chat/chat_page.dart' as _i14;
-import '../presentation/pages/user/home_page.dart' as _i10;
-import '../presentation/pages/user/main/main_page.dart' as _i11;
-import '../presentation/pages/user/main/pages/stories/story_page.dart' as _i8;
-import '../presentation/pages/user/profile/profile_page.dart' as _i15;
-import '../presentation/pages/user/profile/user_profile_page.dart' as _i6;
-import '../presentation/pages/user/saved/saved.dart' as _i12;
-import '../presentation/pages/user/saved/saved_item_page/saved_item.dart'
-    as _i9;
-
-class AppRouter extends _i19.RootStackRouter {
-  AppRouter([_i20.GlobalKey<_i20.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+abstract class $AppRouter extends _i18.RootStackRouter {
+  $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i19.PageFactory> pagesMap = {
+  final Map<String, _i18.PageFactory> pagesMap = {
     SplashRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.SplashPage(),
       );
     },
-    LoginRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
+    SavedItemsRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i19.WrappedRoute(child: const _i2.LoginPage()),
+        child: const _i2.SavedItemsPage(),
       );
     },
-    SearchRegistrationRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
+    SavedItem.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<SavedItemArgs>(
+          orElse: () => SavedItemArgs(itemId: pathParams.getInt('itemId')));
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.SearchRegistrationPage(),
+        child: _i3.SavedItem(
+          key: args.key,
+          itemId: args.itemId,
+        ),
       );
     },
-    RegistrationRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
+    ChatRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.RegistrationPage(),
+        child: _i18.WrappedRoute(child: const _i4.ChatPage()),
+      );
+    },
+    SelectFilesRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i5.SelectFilesPage(),
+      );
+    },
+    AddPostRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i6.AddPostPage(),
+      );
+    },
+    RecordAudioRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i7.RecordAudioPage(),
       );
     },
     FullScreenVideoRoute.name: (routeData) {
       final args = routeData.argsAs<FullScreenVideoRouteArgs>();
-      return _i19.MaterialPageX<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i5.FullScreenVideoPage(
+        child: _i8.FullScreenVideoPage(
           key: args.key,
           source: args.source,
           controller: args.controller,
@@ -81,290 +107,238 @@ class AppRouter extends _i19.RootStackRouter {
     },
     UserProfileRoute.name: (routeData) {
       final args = routeData.argsAs<UserProfileRouteArgs>();
-      return _i19.MaterialPageX<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i19.WrappedRoute(
-            child: _i6.UserProfilePage(
+        child: _i18.WrappedRoute(
+            child: _i9.UserProfilePage(
           key: args.key,
           userId: args.userId,
         )),
       );
     },
-    SearchRoute.name: (routeData) {
-      return _i19.CustomPage<dynamic>(
-        routeData: routeData,
-        child: _i19.WrappedRoute(child: const _i7.SearchPage()),
-        transitionsBuilder: _i19.TransitionsBuilders.fadeIn,
-        durationInMilliseconds: 800,
-        reverseDurationInMilliseconds: 500,
-        opaque: true,
-        barrierDismissible: false,
-      );
-    },
-    StoryRoute.name: (routeData) {
-      final args = routeData.argsAs<StoryRouteArgs>();
-      return _i19.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: _i8.StoryPage(
-          index: args.index,
-          totalLength: args.totalLength,
-          key: args.key,
-        ),
-      );
-    },
-    AnimatedStoryRoute.name: (routeData) {
-      final args = routeData.argsAs<AnimatedStoryRouteArgs>();
-      return _i19.CustomPage<dynamic>(
-        routeData: routeData,
-        child: _i8.StoryPage(
-          index: args.index,
-          totalLength: args.totalLength,
-          key: args.key,
-        ),
-        transitionsBuilder: _i19.TransitionsBuilders.fadeIn,
-        opaque: true,
-        barrierDismissible: false,
-      );
-    },
-    SavedItemRoute.name: (routeData) {
-      final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<SavedItemRouteArgs>(
-          orElse: () =>
-              SavedItemRouteArgs(itemId: pathParams.getInt('itemId')));
-      return _i19.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: _i9.SavedItem(
-          key: args.key,
-          itemId: args.itemId,
-        ),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      final args =
-          routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
-      return _i19.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: _i10.HomePage(
-          key: args.key,
-          shouldLoadData: args.shouldLoadData,
-        ),
-      );
-    },
-    FeedRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const _i11.MainPage(),
-      );
-    },
-    SavedItemsRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const _i12.SavedItemsPage(),
-      );
-    },
-    AddPostRouter.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const _i13.EmptyRouterPage(),
-      );
-    },
-    ChatRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: _i19.WrappedRoute(child: const _i14.ChatPage()),
-      );
-    },
     ProfileRoute.name: (routeData) {
       final args = routeData.argsAs<ProfileRouteArgs>();
-      return _i19.MaterialPageX<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i19.WrappedRoute(
-            child: _i15.ProfilePage(
+        child: _i18.WrappedRoute(
+            child: _i10.ProfilePage(
           key: args.key,
           mainKey: args.mainKey,
         )),
       );
     },
-    AddPostRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
+    HomeRoute.name: (routeData) {
+      final args =
+          routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i16.AddPostPage(),
+        child: _i11.HomePage(
+          key: args.key,
+          shouldLoadData: args.shouldLoadData,
+        ),
       );
     },
-    RecordAudioRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
+    MainRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i17.RecordAudioPage(),
+        child: const _i12.MainPage(),
       );
     },
-    SelectFilesRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
+    StoryRoute.name: (routeData) {
+      final args = routeData.argsAs<StoryRouteArgs>();
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i18.SelectFilesPage(),
+        child: _i13.StoryPage(
+          key: args.key,
+          index: args.index,
+          totalLength: args.totalLength,
+        ),
+      );
+    },
+    AnimatedStoryRoute.name: (routeData) {
+      final args = routeData.argsAs<AnimatedStoryRouteArgs>();
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i13.AnimatedStoryPage(
+          key: args.key,
+          index: args.index,
+          totalLength: args.totalLength,
+        ),
+      );
+    },
+    SearchRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i18.WrappedRoute(child: const _i14.SearchPage()),
+      );
+    },
+    RegistrationRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i15.RegistrationPage(),
+      );
+    },
+    SearchRegistrationRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i16.SearchRegistrationPage(),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i18.WrappedRoute(child: const _i17.LoginPage()),
       );
     },
   };
-
-  @override
-  List<_i19.RouteConfig> get routes => [
-        _i19.RouteConfig(
-          SplashRoute.name,
-          path: '/',
-        ),
-        _i19.RouteConfig(
-          LoginRoute.name,
-          path: '/log-in',
-        ),
-        _i19.RouteConfig(
-          SearchRegistrationRoute.name,
-          path: '/search',
-        ),
-        _i19.RouteConfig(
-          RegistrationRoute.name,
-          path: '/registration',
-        ),
-        _i19.RouteConfig(
-          FullScreenVideoRoute.name,
-          path: '/fullscreen-video',
-        ),
-        _i19.RouteConfig(
-          UserProfileRoute.name,
-          path: '/follower-account',
-        ),
-        _i19.RouteConfig(
-          SearchRoute.name,
-          path: '/search_page',
-        ),
-        _i19.RouteConfig(
-          StoryRoute.name,
-          path: '/story',
-        ),
-        _i19.RouteConfig(
-          AnimatedStoryRoute.name,
-          path: '/story_anim',
-        ),
-        _i19.RouteConfig(
-          SavedItemRoute.name,
-          path: ':itemId',
-        ),
-        _i19.RouteConfig(
-          HomeRoute.name,
-          path: '/home',
-          children: [
-            _i19.RouteConfig(
-              FeedRoute.name,
-              path: 'feed',
-              parent: HomeRoute.name,
-            ),
-            _i19.RouteConfig(
-              SavedItemsRoute.name,
-              path: 'saved',
-              parent: HomeRoute.name,
-            ),
-            _i19.RouteConfig(
-              AddPostRouter.name,
-              path: 'addPost',
-              parent: HomeRoute.name,
-              children: [
-                _i19.RouteConfig(
-                  AddPostRoute.name,
-                  path: '',
-                  parent: AddPostRouter.name,
-                ),
-                _i19.RouteConfig(
-                  RecordAudioRoute.name,
-                  path: 'record-audio',
-                  parent: AddPostRouter.name,
-                ),
-                _i19.RouteConfig(
-                  SelectFilesRoute.name,
-                  path: 'select-audio',
-                  parent: AddPostRouter.name,
-                ),
-              ],
-            ),
-            _i19.RouteConfig(
-              ChatRoute.name,
-              path: 'chat',
-              parent: HomeRoute.name,
-            ),
-            _i19.RouteConfig(
-              ProfileRoute.name,
-              path: 'profile',
-              parent: HomeRoute.name,
-            ),
-          ],
-        ),
-      ];
 }
 
 /// generated route for
 /// [_i1.SplashPage]
-class SplashRoute extends _i19.PageRouteInfo<void> {
-  const SplashRoute()
+class SplashRoute extends _i18.PageRouteInfo<void> {
+  const SplashRoute({List<_i18.PageRouteInfo>? children})
       : super(
           SplashRoute.name,
-          path: '/',
+          initialChildren: children,
         );
 
   static const String name = 'SplashRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.LoginPage]
-class LoginRoute extends _i19.PageRouteInfo<void> {
-  const LoginRoute()
+/// [_i2.SavedItemsPage]
+class SavedItemsRoute extends _i18.PageRouteInfo<void> {
+  const SavedItemsRoute({List<_i18.PageRouteInfo>? children})
       : super(
-          LoginRoute.name,
-          path: '/log-in',
+          SavedItemsRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'LoginRoute';
+  static const String name = 'SavedItemsRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.SearchRegistrationPage]
-class SearchRegistrationRoute extends _i19.PageRouteInfo<void> {
-  const SearchRegistrationRoute()
-      : super(
-          SearchRegistrationRoute.name,
-          path: '/search',
+/// [_i3.SavedItem]
+class SavedItem extends _i18.PageRouteInfo<SavedItemArgs> {
+  SavedItem({
+    _i19.Key? key,
+    required int itemId,
+    List<_i18.PageRouteInfo>? children,
+  }) : super(
+          SavedItem.name,
+          args: SavedItemArgs(
+            key: key,
+            itemId: itemId,
+          ),
+          rawPathParams: {'itemId': itemId},
+          initialChildren: children,
         );
 
-  static const String name = 'SearchRegistrationRoute';
+  static const String name = 'SavedItem';
+
+  static const _i18.PageInfo<SavedItemArgs> page =
+      _i18.PageInfo<SavedItemArgs>(name);
+}
+
+class SavedItemArgs {
+  const SavedItemArgs({
+    this.key,
+    required this.itemId,
+  });
+
+  final _i19.Key? key;
+
+  final int itemId;
+
+  @override
+  String toString() {
+    return 'SavedItemArgs{key: $key, itemId: $itemId}';
+  }
 }
 
 /// generated route for
-/// [_i4.RegistrationPage]
-class RegistrationRoute extends _i19.PageRouteInfo<void> {
-  const RegistrationRoute()
+/// [_i4.ChatPage]
+class ChatRoute extends _i18.PageRouteInfo<void> {
+  const ChatRoute({List<_i18.PageRouteInfo>? children})
       : super(
-          RegistrationRoute.name,
-          path: '/registration',
+          ChatRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'RegistrationRoute';
+  static const String name = 'ChatRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.FullScreenVideoPage]
+/// [_i5.SelectFilesPage]
+class SelectFilesRoute extends _i18.PageRouteInfo<void> {
+  const SelectFilesRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          SelectFilesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SelectFilesRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.AddPostPage]
+class AddPostRoute extends _i18.PageRouteInfo<void> {
+  const AddPostRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          AddPostRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddPostRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i7.RecordAudioPage]
+class RecordAudioRoute extends _i18.PageRouteInfo<void> {
+  const RecordAudioRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          RecordAudioRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RecordAudioRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i8.FullScreenVideoPage]
 class FullScreenVideoRoute
-    extends _i19.PageRouteInfo<FullScreenVideoRouteArgs> {
+    extends _i18.PageRouteInfo<FullScreenVideoRouteArgs> {
   FullScreenVideoRoute({
     _i20.Key? key,
     required String source,
     required _i21.VideoPlayerController controller,
+    List<_i18.PageRouteInfo>? children,
   }) : super(
           FullScreenVideoRoute.name,
-          path: '/fullscreen-video',
           args: FullScreenVideoRouteArgs(
             key: key,
             source: source,
             controller: controller,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'FullScreenVideoRoute';
+
+  static const _i18.PageInfo<FullScreenVideoRouteArgs> page =
+      _i18.PageInfo<FullScreenVideoRouteArgs>(name);
 }
 
 class FullScreenVideoRouteArgs {
@@ -387,21 +361,25 @@ class FullScreenVideoRouteArgs {
 }
 
 /// generated route for
-/// [_i6.UserProfilePage]
-class UserProfileRoute extends _i19.PageRouteInfo<UserProfileRouteArgs> {
+/// [_i9.UserProfilePage]
+class UserProfileRoute extends _i18.PageRouteInfo<UserProfileRouteArgs> {
   UserProfileRoute({
     _i20.Key? key,
     required int userId,
+    List<_i18.PageRouteInfo>? children,
   }) : super(
           UserProfileRoute.name,
-          path: '/follower-account',
           args: UserProfileRouteArgs(
             key: key,
             userId: userId,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'UserProfileRoute';
+
+  static const _i18.PageInfo<UserProfileRouteArgs> page =
+      _i18.PageInfo<UserProfileRouteArgs>(name);
 }
 
 class UserProfileRouteArgs {
@@ -421,231 +399,25 @@ class UserProfileRouteArgs {
 }
 
 /// generated route for
-/// [_i7.SearchPage]
-class SearchRoute extends _i19.PageRouteInfo<void> {
-  const SearchRoute()
-      : super(
-          SearchRoute.name,
-          path: '/search_page',
-        );
-
-  static const String name = 'SearchRoute';
-}
-
-/// generated route for
-/// [_i8.StoryPage]
-class StoryRoute extends _i19.PageRouteInfo<StoryRouteArgs> {
-  StoryRoute({
-    required int index,
-    required int totalLength,
-    _i20.Key? key,
-  }) : super(
-          StoryRoute.name,
-          path: '/story',
-          args: StoryRouteArgs(
-            index: index,
-            totalLength: totalLength,
-            key: key,
-          ),
-        );
-
-  static const String name = 'StoryRoute';
-}
-
-class StoryRouteArgs {
-  const StoryRouteArgs({
-    required this.index,
-    required this.totalLength,
-    this.key,
-  });
-
-  final int index;
-
-  final int totalLength;
-
-  final _i20.Key? key;
-
-  @override
-  String toString() {
-    return 'StoryRouteArgs{index: $index, totalLength: $totalLength, key: $key}';
-  }
-}
-
-/// generated route for
-/// [_i8.StoryPage]
-class AnimatedStoryRoute extends _i19.PageRouteInfo<AnimatedStoryRouteArgs> {
-  AnimatedStoryRoute({
-    required int index,
-    required int totalLength,
-    _i20.Key? key,
-  }) : super(
-          AnimatedStoryRoute.name,
-          path: '/story_anim',
-          args: AnimatedStoryRouteArgs(
-            index: index,
-            totalLength: totalLength,
-            key: key,
-          ),
-        );
-
-  static const String name = 'AnimatedStoryRoute';
-}
-
-class AnimatedStoryRouteArgs {
-  const AnimatedStoryRouteArgs({
-    required this.index,
-    required this.totalLength,
-    this.key,
-  });
-
-  final int index;
-
-  final int totalLength;
-
-  final _i20.Key? key;
-
-  @override
-  String toString() {
-    return 'AnimatedStoryRouteArgs{index: $index, totalLength: $totalLength, key: $key}';
-  }
-}
-
-/// generated route for
-/// [_i9.SavedItem]
-class SavedItemRoute extends _i19.PageRouteInfo<SavedItemRouteArgs> {
-  SavedItemRoute({
-    _i20.Key? key,
-    required int itemId,
-  }) : super(
-          SavedItemRoute.name,
-          path: ':itemId',
-          args: SavedItemRouteArgs(
-            key: key,
-            itemId: itemId,
-          ),
-          rawPathParams: {'itemId': itemId},
-        );
-
-  static const String name = 'SavedItemRoute';
-}
-
-class SavedItemRouteArgs {
-  const SavedItemRouteArgs({
-    this.key,
-    required this.itemId,
-  });
-
-  final _i20.Key? key;
-
-  final int itemId;
-
-  @override
-  String toString() {
-    return 'SavedItemRouteArgs{key: $key, itemId: $itemId}';
-  }
-}
-
-/// generated route for
-/// [_i10.HomePage]
-class HomeRoute extends _i19.PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({
-    _i20.Key? key,
-    bool shouldLoadData = true,
-    List<_i19.PageRouteInfo>? children,
-  }) : super(
-          HomeRoute.name,
-          path: '/home',
-          args: HomeRouteArgs(
-            key: key,
-            shouldLoadData: shouldLoadData,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeRoute';
-}
-
-class HomeRouteArgs {
-  const HomeRouteArgs({
-    this.key,
-    this.shouldLoadData = true,
-  });
-
-  final _i20.Key? key;
-
-  final bool shouldLoadData;
-
-  @override
-  String toString() {
-    return 'HomeRouteArgs{key: $key, shouldLoadData: $shouldLoadData}';
-  }
-}
-
-/// generated route for
-/// [_i11.MainPage]
-class FeedRoute extends _i19.PageRouteInfo<void> {
-  const FeedRoute()
-      : super(
-          FeedRoute.name,
-          path: 'feed',
-        );
-
-  static const String name = 'FeedRoute';
-}
-
-/// generated route for
-/// [_i12.SavedItemsPage]
-class SavedItemsRoute extends _i19.PageRouteInfo<void> {
-  const SavedItemsRoute()
-      : super(
-          SavedItemsRoute.name,
-          path: 'saved',
-        );
-
-  static const String name = 'SavedItemsRoute';
-}
-
-/// generated route for
-/// [_i13.EmptyRouterPage]
-class AddPostRouter extends _i19.PageRouteInfo<void> {
-  const AddPostRouter({List<_i19.PageRouteInfo>? children})
-      : super(
-          AddPostRouter.name,
-          path: 'addPost',
-          initialChildren: children,
-        );
-
-  static const String name = 'AddPostRouter';
-}
-
-/// generated route for
-/// [_i14.ChatPage]
-class ChatRoute extends _i19.PageRouteInfo<void> {
-  const ChatRoute()
-      : super(
-          ChatRoute.name,
-          path: 'chat',
-        );
-
-  static const String name = 'ChatRoute';
-}
-
-/// generated route for
-/// [_i15.ProfilePage]
-class ProfileRoute extends _i19.PageRouteInfo<ProfileRouteArgs> {
+/// [_i10.ProfilePage]
+class ProfileRoute extends _i18.PageRouteInfo<ProfileRouteArgs> {
   ProfileRoute({
     _i20.Key? key,
-    required _i20.GlobalKey<_i20.ScaffoldState> mainKey,
+    required _i20.GlobalKey<_i19.ScaffoldState> mainKey,
+    List<_i18.PageRouteInfo>? children,
   }) : super(
           ProfileRoute.name,
-          path: 'profile',
           args: ProfileRouteArgs(
             key: key,
             mainKey: mainKey,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'ProfileRoute';
+
+  static const _i18.PageInfo<ProfileRouteArgs> page =
+      _i18.PageInfo<ProfileRouteArgs>(name);
 }
 
 class ProfileRouteArgs {
@@ -656,7 +428,7 @@ class ProfileRouteArgs {
 
   final _i20.Key? key;
 
-  final _i20.GlobalKey<_i20.ScaffoldState> mainKey;
+  final _i20.GlobalKey<_i19.ScaffoldState> mainKey;
 
   @override
   String toString() {
@@ -665,37 +437,195 @@ class ProfileRouteArgs {
 }
 
 /// generated route for
-/// [_i16.AddPostPage]
-class AddPostRoute extends _i19.PageRouteInfo<void> {
-  const AddPostRoute()
-      : super(
-          AddPostRoute.name,
-          path: '',
+/// [_i11.HomePage]
+class HomeRoute extends _i18.PageRouteInfo<HomeRouteArgs> {
+  HomeRoute({
+    _i19.Key? key,
+    bool shouldLoadData = true,
+    List<_i18.PageRouteInfo>? children,
+  }) : super(
+          HomeRoute.name,
+          args: HomeRouteArgs(
+            key: key,
+            shouldLoadData: shouldLoadData,
+          ),
+          initialChildren: children,
         );
 
-  static const String name = 'AddPostRoute';
+  static const String name = 'HomeRoute';
+
+  static const _i18.PageInfo<HomeRouteArgs> page =
+      _i18.PageInfo<HomeRouteArgs>(name);
+}
+
+class HomeRouteArgs {
+  const HomeRouteArgs({
+    this.key,
+    this.shouldLoadData = true,
+  });
+
+  final _i19.Key? key;
+
+  final bool shouldLoadData;
+
+  @override
+  String toString() {
+    return 'HomeRouteArgs{key: $key, shouldLoadData: $shouldLoadData}';
+  }
 }
 
 /// generated route for
-/// [_i17.RecordAudioPage]
-class RecordAudioRoute extends _i19.PageRouteInfo<void> {
-  const RecordAudioRoute()
+/// [_i12.MainPage]
+class MainRoute extends _i18.PageRouteInfo<void> {
+  const MainRoute({List<_i18.PageRouteInfo>? children})
       : super(
-          RecordAudioRoute.name,
-          path: 'record-audio',
+          MainRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'RecordAudioRoute';
+  static const String name = 'MainRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i18.SelectFilesPage]
-class SelectFilesRoute extends _i19.PageRouteInfo<void> {
-  const SelectFilesRoute()
-      : super(
-          SelectFilesRoute.name,
-          path: 'select-audio',
+/// [_i13.StoryPage]
+class StoryRoute extends _i18.PageRouteInfo<StoryRouteArgs> {
+  StoryRoute({
+    _i20.Key? key,
+    required int index,
+    required int totalLength,
+    List<_i18.PageRouteInfo>? children,
+  }) : super(
+          StoryRoute.name,
+          args: StoryRouteArgs(
+            key: key,
+            index: index,
+            totalLength: totalLength,
+          ),
+          initialChildren: children,
         );
 
-  static const String name = 'SelectFilesRoute';
+  static const String name = 'StoryRoute';
+
+  static const _i18.PageInfo<StoryRouteArgs> page =
+      _i18.PageInfo<StoryRouteArgs>(name);
+}
+
+class StoryRouteArgs {
+  const StoryRouteArgs({
+    this.key,
+    required this.index,
+    required this.totalLength,
+  });
+
+  final _i20.Key? key;
+
+  final int index;
+
+  final int totalLength;
+
+  @override
+  String toString() {
+    return 'StoryRouteArgs{key: $key, index: $index, totalLength: $totalLength}';
+  }
+}
+
+/// generated route for
+/// [_i13.AnimatedStoryPage]
+class AnimatedStoryRoute extends _i18.PageRouteInfo<AnimatedStoryRouteArgs> {
+  AnimatedStoryRoute({
+    _i20.Key? key,
+    required int index,
+    required int totalLength,
+    List<_i18.PageRouteInfo>? children,
+  }) : super(
+          AnimatedStoryRoute.name,
+          args: AnimatedStoryRouteArgs(
+            key: key,
+            index: index,
+            totalLength: totalLength,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AnimatedStoryRoute';
+
+  static const _i18.PageInfo<AnimatedStoryRouteArgs> page =
+      _i18.PageInfo<AnimatedStoryRouteArgs>(name);
+}
+
+class AnimatedStoryRouteArgs {
+  const AnimatedStoryRouteArgs({
+    this.key,
+    required this.index,
+    required this.totalLength,
+  });
+
+  final _i20.Key? key;
+
+  final int index;
+
+  final int totalLength;
+
+  @override
+  String toString() {
+    return 'AnimatedStoryRouteArgs{key: $key, index: $index, totalLength: $totalLength}';
+  }
+}
+
+/// generated route for
+/// [_i14.SearchPage]
+class SearchRoute extends _i18.PageRouteInfo<void> {
+  const SearchRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          SearchRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i15.RegistrationPage]
+class RegistrationRoute extends _i18.PageRouteInfo<void> {
+  const RegistrationRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          RegistrationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegistrationRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i16.SearchRegistrationPage]
+class SearchRegistrationRoute extends _i18.PageRouteInfo<void> {
+  const SearchRegistrationRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          SearchRegistrationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchRegistrationRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i17.LoginPage]
+class LoginRoute extends _i18.PageRouteInfo<void> {
+  const LoginRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          LoginRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }

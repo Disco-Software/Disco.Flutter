@@ -14,21 +14,51 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class StoryPage extends StatefulWidget {
+@RoutePage()
+class StoryPage extends StatelessWidget {
   final int index;
   final int totalLength;
 
-  const StoryPage({
+  const StoryPage({Key? key, required this.index, required this.totalLength})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StoryPageBody(index: index, totalLength: totalLength);
+  }
+}
+
+@RoutePage()
+class AnimatedStoryPage extends StatelessWidget {
+  final int index;
+  final int totalLength;
+
+  const AnimatedStoryPage(
+      {Key? key, required this.index, required this.totalLength})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StoryPageBody(index: index, totalLength: totalLength);
+  }
+}
+
+class StoryPageBody extends StatefulWidget {
+  final int index;
+  final int totalLength;
+
+  const StoryPageBody({
+    Key? key,
     required this.index,
     required this.totalLength,
-    Key? key,
   }) : super(key: key);
 
   @override
-  State<StoryPage> createState() => _StoryPageState();
+  State<StoryPageBody> createState() => _StoryPageBodyState();
 }
 
-class _StoryPageState extends State<StoryPage> with SingleTickerProviderStateMixin {
+class _StoryPageBodyState extends State<StoryPageBody>
+    with SingleTickerProviderStateMixin {
   late int storyIndex;
   late StoryController _storyController;
   final List<StoryModel> stories = [];
@@ -37,6 +67,7 @@ class _StoryPageState extends State<StoryPage> with SingleTickerProviderStateMix
   Account? currentUser;
   final FocusNode _textFieldFocus = FocusNode();
   final TextEditingController _textController = TextEditingController();
+
   // final PageController _pageController = PageController();
 
   @override
@@ -53,7 +84,8 @@ class _StoryPageState extends State<StoryPage> with SingleTickerProviderStateMix
               .map((e) => StoryModel(
                     storyType: StoryType.image,
                     source: e.source ?? '',
-                    dateOfCreation: DateTime.parse(e.dateOfCreation ?? '${DateTime.now()}'),
+                    dateOfCreation:
+                        DateTime.parse(e.dateOfCreation ?? '${DateTime.now()}'),
                   ))
               .toList(growable: false)
           : [];
@@ -65,7 +97,8 @@ class _StoryPageState extends State<StoryPage> with SingleTickerProviderStateMix
               .map((e) => StoryModel(
                     storyType: StoryType.video,
                     source: e.source ?? '',
-                    dateOfCreation: DateTime.parse(e.dateOfCreation ?? '${DateTime.now()}'),
+                    dateOfCreation:
+                        DateTime.parse(e.dateOfCreation ?? '${DateTime.now()}'),
                   ))
               .toList(growable: false)
           : [];
@@ -146,7 +179,7 @@ class _StoryPageState extends State<StoryPage> with SingleTickerProviderStateMix
                           context.router.pop();
                         }
                         if (direction == Direction.left) {
-                          context.router.replace(AnimatedStoryRoute(
+                          context.router.replace(StoryRoute(
                               index: widget.index + 1,
                               totalLength: _totalLength,
                               key: ValueKey(

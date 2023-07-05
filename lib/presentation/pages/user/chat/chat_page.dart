@@ -3,9 +3,7 @@ import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:disco_app/app/app_router.gr.dart';
 import 'package:disco_app/data/network/network_models/chat_group.dart';
-import 'package:disco_app/data/network/network_models/chat_message.dart';
 import 'package:disco_app/injection.dart';
 import 'package:disco_app/presentation/common_widgets/unicorn_image.dart';
 import 'package:disco_app/presentation/pages/user/chat/chat_cubit/chat_state.dart';
@@ -18,6 +16,7 @@ import 'package:signalr_pure/signalr_pure.dart';
 import '../../../../res/colors.dart';
 import 'chat_cubit/chat_cubit.dart';
 
+@RoutePage()
 class ChatPage extends StatefulWidget implements AutoRouteWrapper {
   const ChatPage({Key? key}) : super(key: key);
 

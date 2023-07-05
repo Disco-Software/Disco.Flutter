@@ -13,6 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:marquee/marquee.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage()
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, this.shouldLoadData = true}) : super(key: key);
   final bool shouldLoadData;
@@ -325,7 +326,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                     radius: 360,
                                     strokeWidth: 3,
                                     onPressed: () {
-                                      context.router.replace(const AddPostRouter());
+                                      context.router.replace(const AddPostRoute());
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 5),
@@ -370,9 +371,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         navigatorObservers: () => [AddPostObserver()],
         drawer: const AccountDrawer(userName: '', photo: ''),
         routes: [
-          const FeedRoute(),
+          const MainRoute(),
           const SavedItemsRoute(),
-          const AddPostRouter(),
+          const AddPostRoute(),
           const ChatRoute(),
           ProfileRoute(mainKey: _drawerKey),
         ]);

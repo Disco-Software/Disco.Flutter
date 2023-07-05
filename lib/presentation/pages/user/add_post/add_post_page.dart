@@ -11,6 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage()
 class AddPostPage extends StatelessWidget {
   const AddPostPage({Key? key}) : super(key: key);
 

@@ -14,6 +14,7 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'bloc/search_cubit.dart';
 import 'bloc/search_state.dart';
 
+@RoutePage()
 class SearchRegistrationPage extends StatefulWidget {
   const SearchRegistrationPage({Key? key}) : super(key: key);
   static const routeName = "/search";
